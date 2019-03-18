@@ -1,0 +1,331 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link rel="stylesheet" type="text/css" href="css/pubs.css" />
+<title>Publications</title>
+<script src="js/jquery-1.11.2.min.js"></script>
+<script language="javascript">
+$(document).ready(function() {
+    var offset = 220;
+    var duration = 500;
+    jQuery(window).scroll(function() {
+        if (jQuery(this).scrollTop() > offset) {
+            jQuery('.back-to-top').fadeIn(duration);
+        } else {
+            jQuery('.back-to-top').fadeOut(duration);
+        }
+    });
+    
+    jQuery('.back-to-top').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: 0}, duration);
+        return false;
+    }); 
+	
+	jQuery('.journals-scroll').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: $('#journals').offset().top}, duration);
+        return false;
+    }); 
+	
+	jQuery('.conferences-scroll').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: $('#conferences').offset().top}, duration+50);
+        return false;
+    });
+	
+	jQuery('.workshops-scroll').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: $('#workshops').offset().top}, duration+150);
+        return false;
+    }); 
+	
+	jQuery('.reports-scroll').click(function(event) {
+        event.preventDefault();
+        jQuery('html, body').animate({scrollTop: $('#reports').offset().top}, duration+160);
+        return false;
+    }); 
+});
+</script>
+</head>
+
+<body>
+
+<header>
+	<h1>Publications</h1>
+    <nav>      
+      <ul class="nav">
+        <li><a href="index.html" class="icon home"><span>Home</span></a></li>
+        <li><a class="journals-scroll" href="#journals">Journals</a></li>        
+        <li><a class="conferences-scroll" href="#confs">Conferences</a></li>
+        <li><a class="workshops-scroll" href="#workshops">Workshops</a></li>
+        <li><a class="reports-scroll" href="#reports">Reports</a></li>
+        <li class="dropdown">
+          <a href="#">Links</a>
+          <ul class="large">
+            <li><a href="http://www.librec.net/" target="_blank">Code: LibRec</a></li> 
+            <li><a href="http://www.librec.net/datasets.html" target="_blank">Data Sets</a></li> 
+            <li><a href="https://scholar.google.com.sg/citations?user=YMXJa2EAAAAJ&hl=en" target="_blank">Google Scholar</a></li> 
+            <li><a href="http://www.informatik.uni-trier.de/~ley/pers/hd/g/Guo:Guibing" target="_blank">DBLP: Guibing Guo</a></li>          
+            <li><a href="http://sg.linkedin.com/pub/guibing-guo/60/2a6/1a1" target="_blank">LinkedIn</a></li>
+            <li><a href="https://twitter.com/guoguibing" target="_blank">Twitter</a></li>
+            <li><a href="http://www.weibo.com/guoguibing" target="_blank">Sina Weibo</a></li>
+          </ul>
+        </li>
+      </ul>
+    </nav>
+</header>
+
+<section id="journals">
+<h2><a name="journals"></a>Journals</h2>
+<ol>
+<li><span class="title">Visual Semantic Image Recommendation</span><span class="addon">[<a href="#">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, Y. Meng, Y. Zhang, C. Han, Y. Li<br>
+  IEEE Access (IF: 3.557), accepted, DOI=10.1109/ACCESS.2019.2900396, Feb 2019.
+</li>
+<li><span class="title">PCCF: Periodic and Continual Temporal Co-Factorization for Recommender Systems</span><span class="addon">[<a href="http://www.sciencedirect.com/science/article/pii/S0020025518300252">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, F. Zhu, S. Qu, X. Wang<br>
+  Information Sciences (IS, IF: 4.832), 436-437, 56-73, Apr 2018.
+</li>
+<li><span class="title">Search Engine based Proper Privacy Protection Scheme</span><span class="addon">[<a href="https://ieeexplore.ieee.org/document/8563040">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, T. Yang, Y. Liu<br>
+  IEEE Access (IF: 3.557), 6, 78551-78558, Dec 5, 2018.
+</li>
+<li><span class="title">BPRH: Bayesian Personalized Ranking for Heterogeneous Implicit Feedback</span><span class="addon">[<a href="https://www.sciencedirect.com/science/article/pii/S0020025516315742">PDF</a>]</span><br>
+  H. Qiu, Y. Liu*, <span class="me">G. Guo</span>, Z. Sun, J. Zhang, H. T. Nguyen<br>
+  Information Sciences (IS, IF: 4.832), 453, 80-98, Apr 2018.
+</li>
+<li><span class="title">Factored Similarity Models with Social Trust for Top-N Item Recommendation</span><span class="addon">[<a href="http://www.sciencedirect.com/science/article/pii/S0950705117300400">PDF</a> | <a href="codes/FST.java">Code</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, F. Zhu, X. Wang<br>
+  Knowledge-based Systems (KBS, IF: 4.529), 122, 17-25, Apr 15, 2017.
+</li>
+<li><span class="title">Resolving Data Sparsity by Multi-type Auxiliary Implicit Feedback for Recommender Systems</span><span class="addon">[<a href="https://www.sciencedirect.com/science/article/pii/S0950705117304653">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, H. Qiu, Z. Tan, Y. Liu, J. Ma, X. Wang<br>
+  Knowledge-based Systems (KBS, IF: 4.529), 138, 202-207, Dec 15, 2017.
+</li>
+<li><span class="title">Leveraging Multi-actions to Improve Medical Personalized Ranking for Collaborative Filtering</span><span class="addon">[<a href="https://www.hindawi.com/journals/jhe/2017/5967302/cta/">PDF</a>]</span><br>
+  S. Gao, <span class="me">G. Guo</span>*, R. Li, Z. Wang<br>
+  Journal of Healthcare Engineering (IF: 0.965), Oct 3, 2017.
+</li>
+<li><span class="title">Measuring Similarity of Users with Qualitative Preferences for Service Selection</span><br>
+H. Wang, H. Wang, <span class="me">G. Guo</span>, Y. Tang, J. Zhang<br>
+Knowledge and Information Systems (KIS, IF: 2.004), 51(2), 561-594, May 2017. </li>
+<!--
+<li><span class="title">Leveraging Multi-Actions to Improve Medical Personalized Ranking for Collaborative Filtering</span><span class="title"></span><br>
+  S. Gao, <span class="me">G. Guo</span><sup>*</sup>, R. Li, Z.M. Wang<br>
+  Journal of Healthcare Engineering (IF: 0.925), minor revision, 2017.
+</li>-->
+<li><span class="title">A Novel Recommendation Model Regularized with User Trust and Item Ratings</span><span class="addon">[<a href="./papers/guo2016trustsvd.pdf">PDF</a> | <a href="codes/TrustSVDPlusPlus.java">Code</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, N. Yorke-Smith<br>
+  IEEE Transactions on Knowledge and Data Engineering (TKDE, IF: 3.438), 28(7), 1607-1620, 2016. <br>
+<span class="notes">The source codes of TrustSVD++ can be downloaded <a href="codes/TrustSVDPlusPlus.java">here</a>, which is based on a previous version (v1.3) of LibRec. <br>
+You may refer to the implementation of TrustSVD in LibRec for adapting and using TrustSVD++ in the new version.</span></li>
+
+<li><span class="title">A Novel Evidence-based Bayesian Similarity Measure for Recommender Systems</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, N. Yorke-Smith<br>
+  ACM Transactions on the Web (TWEB, IF: 1.526), 10(2), 8:1-8:30, 2016.
+</li>
+<li><span class="title">Leveraging Multiviews of Trust and Similarity to Enhance Cluster-based Recommender Systems</span><span class="addon">[<a href="./papers/guo2015leveraging.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, N. Yorke-Smith<br>
+  Knowledge-Based Systems (KBS, IF: 3.325), 74(0), pp. 14-27, 2015.
+</li>
+<li><span class="title">Multi-Faceted Trust and Distrust Prediction for Recommender Systems</span><span class="addon">[<a href="http://www.sciencedirect.com/science/article/pii/S0167923615000068">PDF</a>]</span><br>
+  H. Fang, <span class="me">G. Guo</span><sup>*</sup>, J. Zhang<br>
+  Decision Support Systems (DSS, IF: 2.604), 71(0), pp. 37-47, 2015.
+</li>
+<li><span class="title">Integrating Trust with User Preference for Effective Web Service Composition</span><br>
+  H. Wang, B. Zou, <span class="me">G. Guo</span>, J. Zhang, D. Yang<br>
+  IEEE Transactions on Services Computing (TSC, IF: 2.365), accepted, 2015.
+</li>
+<li><span class="title">Merging Trust in Collaborative Filtering to Alleviate Data Sparsity and Cold Start</span><span class="addon">[<a href="./papers/guo2014merging.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann<br>
+  Knowledge-Based Systems (KBS, IF: 2.947), 57(0), pp. 57-68, 2014.
+</li>
+<li><span class="title">Leveraging Prior Ratings for Recommender Systems in E-Commerce</span><span class="addon">[<a href="./papers/guo2014leveraging.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann, N. Yorke-Smith<br>
+  Electronic Commerce Research and Applications (ECRA, IF: 1.482), 13(6), pp. 440-455, 2014.
+</li>
+<li><span class="title">Opinions of People: Factoring in Privacy and Trust</span><span class="addon">[<a href="http://www3.ntu.edu.sg/home/zhangj/paper/basu2014opinions.pdf">PDF</a>]</span><br>
+A. Basu, J. Vaidya, J.C. Corena, S. Kiyomoto, S. Marsh, <span class="me">G. Guo</span>, J. Zhang, Y. Miyake<br>
+  ACM SIGAPP Applied Computing Review, 14(3), pp. 7-21, 2014.</li>
+</ol>
+</section>
+
+<section id="conferences">
+<h2><a name="confs"></a>Conferences</h2>
+<ol>
+<li><span class="title">Multi-Hop Path Queries over Knowledge Graphs with Neural Memory Networks</span><br>
+	Q. Wang, H. Yin, W. Wang, Z. Huang, <span class="me">G. Guo</span>, Q.V.H. Nguyen<br>
+    Proceedings of the 24th International Conference on Database Systems for Advanced Applications (DASFAA), 2019.</li>
+<li><span class="title">Approximating Word Ranking and Negative Sampling for Word Embedding</span><br>
+	<span class="me">G. Guo</span>, S. Ouyang, F. Yuan, X. Wang<br>
+    Proceedings of the 27th International Joint Conference on Artificial Intelligence (IJCAI), 2018. (20% acceptance, 710/3470)</li>
+<li><span class="title">VSE-ens: Visual-Semantic Embeddings with Efficient Negative Sampling</span><br>
+<span class="me">G. Guo</span>, S. Zhai, F. Yuan, Y. Liu, X. Wang<br>
+Proceedings of the 32nd AAAI Conference on Artificial Intelligence (AAAI), 2018. </li>
+<li><span class="title">fBGD: Learning Embeddings from Positive-Only Data Without Sampling</span><br>
+  F. Yuan,X. Xin, X. He, <span class="me">G. Guo</span>, W.Zhang, T. Chua, J. Jose<br>
+  Proceedings of the 34th Conference on Uncertainty in Artificial Intelligence (UAI), 2018.</li>
+<li><span class="title">Team Expansion in Collaborative Environment</span><br>
+L. Zhao, Y. Yao, <span class="me">G. Guo</span>, H. Tong, F. Xu, J. Lu<br>
+Proceedings of the 22nd Pacific-Asia Conference on Knowledge Discovery and Data Mining (PAKDD), pp. 713-725, 2018. </li>
+<li><span class="title">Multi-view Visual Bayesian Personalized Ranking from Implicit Feedback</span><br>
+  H. Luo, X. Zhang, B. Chen, <span class="me">G. Guo</span><br>
+  Proceedings of the ACM Conference on User Modeling, Adaptation, and Personalization (UMAP), 2018. (extended abstract)</li>
+<li><span class="title">LFSF: Latent Factor-Based Similarity Framework and Its Application for Collaborative Recommendation</span><br>
+  L. He, Z. Tan, <span class="me">G. Guo</span>, Q. Chang, D. Wu<br>
+  Proceedings of the 19th Pacific-Rim Conference on Multimedia (PCM), pp. 744-754, 2018.</li>
+<li><span class="title">BoostFM: Boosted Factorization Machines for Top-N Feature-based Recommendation</span><br>
+	F. Yuan, <span class="me">G. Guo</span>, J. Jose, L. Chen, H. Yu, W. Zhang<br>
+    Proceedings of the 22nd Annual Meeting of the Intelligent User Interfaces Community and Serves (IUI), 2017. </li>
+<li><span class="title">Learning Hierarchical Category Influence on both Users and Items for Effective Recommendation</span><br>
+	Z. Sun, <span class="me">G. Guo</span>, J. Zhang<br>
+    Proceedings of the 32nd ACM Symposium On Applied Computing (SAC), 2017. </li>
+<li><span class="title">A Unified Latent Factor Model for Effective Category-Aware Recommendation</span><br>
+	Z. Sun, <span class="me">G. Guo</span>, J. Zhang, C. Xu<br>
+    Proceedings of the 25th International Conference on User Modeling, Adaptation and Personalization (UMAP), 2017. (extended abstract)</li>
+<li><span class="title">An Identity Management System Based on Blockchain</span><br>
+	Y. Liu, Z. Zhao, <span class="me">G. Guo</span>, X. Wang, Z. Tan, S. Wang<br>
+    Proceedings of the 15th International Conference on Privacy, Security and Trust (PST), 2017</li>
+<li><span class="title">A Reputation Model for Aggregating Ratings based on Beta Distribution Function</span><br>
+	Y. Liu, U. S. Chitawa, <span class="me">G. Guo</span>, X. Wang, Z. Tan, S. Wang<br>
+    Proceedings of the 2nd International Conference on Crowd Science and Engineering (ICCSE), pp. 77-81, 2017</li>
+<li><span class="title">LambdaFM: Learning Optimal Ranking with Factorization Machines Using Lambda Surrogates</span><br>
+	F. Yuan, <span class="me">G. Guo</span>, J. Jose, W. Zhang, L. Chen, H. Yu<br>
+    Proceedings of the 25th ACM International Conference on Information and Knowledge Management (CIKM, 165/935=17.65%), pp. 227-236, 2016. </li>
+<li><span class="title">Optimizing Factorization Machines for Top-N Context-Aware Recommendations</span><br>
+	F. Yuan, <span class="me">G. Guo</span>, J. Jose, W. Zhang, L. Chen, H. Yu<br>
+    Proceedings of the 17th International Conference on Web Information Systems Engineering (WISE), pp. 278-293, 2016. </li>
+<li><span class="title">Joint Geo-Spatial Preference and Pairwise Ranking for Point-of-Interest Recommendation</span><br>
+	F. Yuan, J. Jose, <span class="me">G. Guo</span>, L. Chen, H. Yu, R. Alkhawaldeh<br>
+    Proceedings of the 28th International Conference on Tools with Artificial Intelligence (ICTAI), 2016. (<span style="color:red;">best student paper</span>) </li>
+<li><span class="title">Effective Recommendation with Category Hierarchy</span><br>
+	Z. Sun, <span class="me">G. Guo</span>, J. Zhang<br>
+    Proceedings of the 24th International Conference on User Modeling, Adaptation and Personalization (UMAP), 2016. (extended abstract)</li>
+<li><span class="title">TBPR: Trinity Preference based Bayesian Personalized Ranking for Multivariate Implicit Feedback</span><br>
+	H. Qiu, <span class="me">G. Guo</span>, J. Zhang, H. Nguyen, Z. Sun, Y. Liu<br>
+    Proceedings of the 24th International Conference on User Modeling, Adaptation and Personalization (UMAP), 2016. (extended abstract)</li>
+<li><span class="title">TrustSVD: Collaborative Filtering with Both the Explicit and Implicit Influence of User Trust and of Item Ratings</span><span class="addon">[<a href="./papers/guo2015trustsvd.pdf">PDF</a>, <a href="https://github.com/guoguibing/librec/blob/master/librec/src/main/java/librec/rating/TrustSVD.java">Code</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, N. Yorke-Smith<br>
+  Proceedings of the 29th AAAI Conference on Artificial Intelligence (AAAI,  acceptance rate: 26.67%), 2015.</li>
+<li><span class="title">LibRec: A Java Library for Recommender Systems</span><span class="addon">[<a href="http://ceur-ws.org/Vol-1388/demo_paper1.pdf">PDF</a>, <a href="https://github.com/guoguibing/librec">Code</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, Z. Sun, N. Yorke-Smith<br>
+  Proceedings of the 23rd International Conference on User Modeling, Adaptation and Personalization (UMAP), 2015. (demo paper)</li>
+<li><span class="title">Exploiting Implicit Item Relationships for Recommender Systems</span><span class="addon">[<a href="http://www.ntu.edu.sg/home/zhangj/paper/umap15-sun.pdf">PDF</a>]</span><br>
+  Z. Sun, <span class="me">G. Guo</span>, J. Zhang<br>
+  Proceedings of the 23rd International Conference on User Modeling, Adaptation and Personalization (UMAP), 2015.</li>
+<li><span class="title">Optimal and Effective Web Service Composition with Trust and User Preference</span><br>
+  H. Wang, B. Zou, <span class="me">G. Guo</span>, J. Zhang, Z. Yang<br>
+  Proceedings of the 22nd IEEE International Conference on Web Services (ICWS, acceptance rate: 20%), pp. 329-336, 2015.</li>
+<li><span class="title">ETAF: An Extended Trust Antecedents Framework for Trust Prediction</span><span class="addon">[<a href="./papers/guo2014etaf.pdf">PDF</a>, <a href="./papers/slides/asonam.pdf">Slides</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann, N. Yorke-Smith<br>
+  Proceedings of the 2014 IEEE/ACM International Conference on Advances in Social Networks Analysis and Mining (ASONAM, acceptance rate: 18%), pp. 540-547, 2014.
+</li>
+<li><span class="title">From Ratings to Trust: an Empirical Study of Implicit Trust in Recommender Systems</span><span class="addon">[<a href="./papers/guo2014ratings.pdf">PDF</a>, <a href="./papers/slides/SAC-2014.pdf">Slides</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann, A. Basu, N. Yorke-Smith<br>
+  Proceedings of the 29th ACM Symposium on Applied Computing (SAC), pp. 248-253, 2014.
+</li>
+<li><span class="title">Privacy Preserving Trusted Social Feedback</span><span class="title"></span><span class="addon">[<a href="http://www3.ntu.edu.sg/home/zhangj/paper/sac14-anirban.pdf">PDF</a>]</span><br>
+  A. Basu, J.C. Corena, S. Kiyomoto, S. Marsh, J. Vaidya, <span class="me">G. Guo</span>, J. Zhang, Y. Miyake<br>
+  Proceedings of the 29th ACM Symposium on Applied Computing (SAC), pp. 1706-1711, 2014.
+</li>
+<li><span class="title">A Hybrid Recommender System based on Material Concepts with Difficulty Levels</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013hybrid.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, M. H. Anjorin, B. S. Lee<br>
+  Proceedings of the 21st International Conference on Computers in Education (ICCE), pp. 90-96, 2013.
+</li>
+<li><span class="title">Combining Recommender and Reputation Systems to Produce Better Online Advice</span><span class="title"></span><span class="addon">[<a href="./papers/audun2013combining.pdf">PDF</a>]</span><br>
+  A. Josang, <span class="me">G. Guo</span>, M. S. Pini, F. Santini, Y. Xu<br>
+  Proceedings of the 10th International Conference on Modeling Decisions for Artificial Intelligence (MDAI), pp. 126-138, 2013.
+</li>
+<li><span class="title">Prior Ratings: A New Information Source for Recommender Systems in E-Commerce</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013prior.pdf">PDF</a>, <a href="./papers/posters/recsys2013prior-poster.pdf">Poster</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann, N. Yorke-Smith<br>
+  Proceedings of the 7th ACM Conference on Recommender Systems (RecSys), pp. 383-386, 2013.
+</li>
+<li><span class="title">Integrating Trust and Similarity to Ameliorate the Data Sparsity and Cold Start for Recommender Systems</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013integrating.pdf">PDF</a>, <a href="./papers/slides/RecSys-2013-DC.pdf">Slides</a>]</span><br>
+  <span class="me">G. Guo</span><br>
+  Proceedings of the 7th ACM Conference on Recommender Systems (RecSys), pp. 451-454, 2013.
+</li>
+<li><span class="title">A Novel Bayesian Similarity Measure for Recommender Systems</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013novel.pdf">PDF</a>, <a href="./papers/posters/ijcai2013novel-poster.pdf">Poster</a>, <a href="./docs/SimUtils.java">Code</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, N. Yorke-Smith<br>
+  Proceedings of the 23rd International Joint Conference on Artificial Intelligence (IJCAI), pp. 2619-2625, 2013.
+  <br>
+  Note: Although the code is dependent on an obsolete package, the implementation logic may be still useful for some others. We may integrate the Bayesian similarity into LibRec some time. </li>
+<li><span class="title">Improving the Performance of Recommender Systems by Alleviating the Data Sparsity and Cold Start Problems</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013improving.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span><br>
+  Proceedings of the 23rd International Joint Conference on Artificial Intelligence (IJCAI), pp. 3217-3218, 2013.
+</li>
+
+<li><span class="title">A New Recommender System for 3D E-Commerce: An EEG Based Approach</span><span class="title"></span><span class="addon">[<a href="./papers/guo2013eeg.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, M. Elgendi<br>
+  Proceedings of the 2013 International Conference on Innovation and Information Management (ICIIM), pp. 61-65,  2013.
+</li>
+<li><span class="title">A Simple but Effective Method to Incorporate Trusted Neighbors in Recommender Systems</span><span class="title"></span><span class="addon">[<a href="./papers/guo2012simple.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, D. Thalmann<br>
+  Proceedings of the 20th International Conference on User Modeling, Adaptation and Personalization (UMAP), pp. 114-125, 2012.
+</li>
+<li><span class="title">Resolving Data Sparsity and Cold Start in Recommender Systems</span><span class="title"></span><span class="addon">[<a href="./papers/guo2012resolving.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span><br>
+  Proceedings of the 20th International Conference on User Modeling, Adaptation and Personalization (UMAP), pp. 361-364, 2012.
+</li>
+<li><span class="title">WCP-nets: A Weighted Extension to CP-nets for Web Service Selection</span><span class="addon">[<a href="./papers/Wang2012Wcpnets.pdf">PDF</a>]</span><br>
+  H. Wang, J. Zhang, W. Sun, H. Song, <span class="me">G. Guo</span>, X. Zhou<br>
+  Proceedings of the 10th International Conference on Service Oriented Computing (ICSOC), pp. 298-312, 2012.
+</li>
+<li><span class="title">Service Selection based on Similarity Measurement for Conditional Qualitative Preference</span><span class="title"></span><span class="addon">[<a href="./papers/wang2012service.pdf">PDF</a>]</span><br>
+  H. Wang, J. Zhang, H. Wang, Y. Tang, <span class="me">G. Guo</span><br>
+  Proceedings of the 2012 IEEE/WIC/ACM International Conference on Web Intelligence (WI), pp. 612-619, 2012.
+</li>
+<li><span class="title">Improving PGP Web of Trust through the Expansion of Trusted Neighborhood</span><span class="addon">[<a href="./papers/guo2011expanding.pdf">PDF</a>, <a href="http://www.slideshare.net/guoguibing/improving-pgp-web-of-trust-through-the-expansion-of-trusted-neighborhood2011-825">Slides</a>]</span><br>
+  <span class="me">G. Guo</span>, J. Zhang, J. Vassileva<br>
+  Proceedings of the 2011 IEEE/WIC/ACM International Conference on Web Intelligence (WI), pp. 489-494, 2011.
+</li>
+</ol>
+</section>
+
+<section id="workshops">
+<h2><a name="workshops"></a>Workshops</h2>
+<ol>
+<li><span class="title">IFUP: Workshop on Multi-dimensional Information Fusion for User Modeling and Personalization</span><br>
+  F. Zhu, Y. Zhang, N. Yorke-Smith, <span class="me">G. Guo</span>, X. Chen<br>
+  Proceedings of the 11th ACM International Conference on Web Search and Data Mining (WSDM), pp. 804-805, 2018.
+</li>
+<li><span class="title">Preface: Papers and Research from the 2016 International
+Workshop IFUP</span><span class="addon">[<a href="http://ceur-ws.org/Vol-1618/IFUP_preface.pdf">PDF</a>]</span><br>
+  <span class="me">G. Guo</span>, R. Burke, F. Zhu, N. Yorke-Smith<br>
+  Proceedings of the 2016 International Workshop on Multi-dimension Information Fusion for User Modeling and Personalisation (UMAP IFUP), 2016.
+</li>
+<li><span class="title">Reducing Information Overload in Social Networks through Streamlined Presentation: a Study of Content-centric and Person-centric Contexts</span><span class="title"></span><span class="addon">[<a href="http://trust.sce.ntu.edu.sg/wit-ec14/papers/aaai-wit-ec14-cohen-reducing.pdf">PDF</a>]</span><br>
+  R. Cohen, N. Sardana, K. Rahim, D.Y. Lam, M. Li, O. Maccarthy, E. Woo, <span class="me">G. Guo</span><br>
+  Proceedings of the 3rd International Workshop on Incentives and Trust in E-Commerce (AAAI WIT-EC), 2014.
+</li>
+<li><span class="title">Qualitative and Quantitative Preferences Based Web Service Composition by Integrating with Trust</span><br>
+  H. Wang, B. Zou, <span class="me">G. Guo</span><br>
+  Proceedings of the 2nd International Workshop on Incentives and Trust in E-Commerce (IJCAI WIT-EC), 2013.
+</li>
+<li><span class="title">Recommending Messages to Users in Social Networks: a Cross-Site Study</span><span class="title"></span><span class="addon">[<a href="./papers/cohen2013recommending.pdf">PDF</a>]</span><br>
+  R. Cohen, N. Sardana, K. Rahim, D. Y. Lam, M. Li, O. Maccarthy, E. Woo, J. Zhang, <span class="me">G. Guo</span><br>
+  Proceedings of the 12th International Conference on Machine Learning and Applications (ICMLA Bigdata), pp. 445-450, 2013.
+</li>
+</ol>
+</section>
+
+<section id="reports">
+<h2><a name="reports"></a>Reports</h2>
+<ol>
+<li><span class="title">Deep Learning-based Sequential Recommender Systems: Concepts, Algorithms, and Evaluations</span><br>
+  H. Fang, <span class="me">G. Guo</span>, D. Zhang, Y. Shu<br>
+  Tutorial, The 19th International Conference on Web Engineering (ICWE), 2019.
+</li>
+<li><span class="title">Exploiting Ratings and Trust to Resolve the Data Sparsity and Cold Start of Recommender Systems</span><br>
+  <span class="me">G. Guo</span><br>
+  Ph.D Thesis, School of Computer Engineering, Nanyang Technological University, 2014.
+</li>
+
+</ol>
+</section>
+
+<!-- Back to top -->
+<p id="back-top"><a href="#" class="back-to-top">Back to Top</a></p>
+</body>
+</html>
