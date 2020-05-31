@@ -1,0 +1,418 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>课题组资源汇总</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="js/jquery-1.11.2.min.js"></script>
+   		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="js/bootstrap.min.js"></script>
+    
+    	<!-- plugins -->
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="shortcut icon" href="images/network.ico" />
+        <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+        
+        <!-- mine -->
+        <link href="css/adds.css" rel="stylesheet">
+        <script type="text/javascript" src="js/mine.js"></script>  
+        <style>
+        .panel-heading{
+        	font-weight:bold;
+        }
+		a::hover{
+			color:blue;
+		}
+		</style>
+    </head>
+
+<body id="home" data-spy="scroll" data-target="#myNav" data-offset="50">
+
+<nav id="myNav"class="navbar navbar-inverse navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="index.html">郭贵冰</a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li class="active"><a class="page-scroll" href="#home">首页<span class="sr-only">(current)</span></a></li>
+        <li><a class="page-scroll" href="#books">图书资料</a></li>
+        <li><a class="page-scroll" href="#e-sources">电子资源</a></li>
+        <li><a class="page-scroll" href="#others">其它资源</a></li>
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<!-- begin container -->
+<div class="container">
+
+<!--
+<section id="overview">
+<div class="panel panel-primary">
+<div class="panel-heading">资源概要</div>
+<div class="panel-body">
+overview
+</div>
+</section>
+-->
+<section id="home">
+<div class="panel panel-primary" style="margin-top:10px;">
+<div class="panel-heading">资源概述</div>
+<div class="panel-body">
+<p>本页面归纳汇总了课题组的各类资源，方便组员查询借阅。各位组员，请优先在这里查找是否有相关的资源。如果没有，请把需要的资源以邮件的方式通知我，然后我再计划购买。</p>
+<p>为确保有效使用，提几点要求。</p>
+<ul><li>注意爱护书籍，不要破损，这是大家共有资源。</li>
+<li>书籍看完后及时归还，以便其它组员查阅使用。</li>
+</ul>
+<p>致谢：课题组衷心感谢各位朋友的关心、支持和赠予。</p>
+</div>
+</div>
+</section>
+<section id="books">
+  <div class="panel panel-success">
+<div class="panel-heading">图书资料</div>
+<table id="bookTable" class="book table table-hover">
+      <thead>
+	         <tr>
+	           <th width="8%">年份</th>
+	           <th width="8%">数量</th>
+	           <th width="30%">书名</th>
+	           <th width="29%">作者</th>
+	           <th width="15%">出版社</th>
+	           <th width="10%">备注</th>
+             </tr>
+      </thead>
+      <tbody>
+      	<tr>
+	           <td>2018</td>
+	           <td>1</td>
+	           <td>自然语言处理综论（第二版）</td>
+	           <td>Daniel Jurafsky（D. 朱夫斯凯）, James H. Martin（J. H. 马丁）</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>Python自然语言处理</td>
+	           <td>Steven Bird</td>
+	           <td>人民邮电出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2017</td>
+	           <td>1</td>
+	           <td>白话深度学习与TensorFlow</td>
+	           <td>高扬，卫峥 著；万娟 绘</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2017</td>
+	           <td>1</td>
+	           <td>机器学习在线 解析阿里云机器学习平台</td>
+	           <td>杨旭</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2012</td>
+	           <td>1</td>
+	           <td>算法导论（原书第3版）</td>
+	           <td>[美] Thomas H.Cormen，[美] Charles E.Leiserson，[美] Ronald L.Rivest，[美] Clifford Stein 著；殷建平，徐云，王刚 等 译</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2017</td>
+	           <td>1</td>
+	           <td>深度学习、优化与识别</td>
+	           <td>焦李成 著</td>
+	           <td>清华大学出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2017</td>
+	           <td>1</td>
+	           <td>TensorFlow：实战Google深度学习框架</td>
+	           <td>才云科技Caicloud，郑泽宇，顾思宇 著</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>白话大数据与机器学习</td>
+	           <td>高扬，卫峥，尹会生 著</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>啊哈！算法</td>
+	           <td>啊哈磊</td>
+	           <td>人民邮电出版社</td>
+	           <td>赵璧赠</td>
+             </tr>
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>CUDA并行程序设计：GPU编程指南</td>
+	           <td>（美）Shane Cook</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>数学建模（原书第5版）</td>
+	           <td>吉奥丹诺　等著，叶其孝　等译</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2009</td>
+	           <td>1</td>
+	           <td>php和mysql web开发(原书第4版)</td>
+	           <td>（澳）威利，（澳）汤姆森 著，武欣 等</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2011</td>
+	           <td>2</td>
+	           <td>神经网络与机器学习[原书第3版]</td>
+	           <td>（加）Simon Haykin</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>数据挖掘：你必须知道的32个经典案例</td>
+	           <td>任昱衡</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>Spark机器学习</td>
+	           <td>Nick Pentreath</td>
+	           <td>人民邮电出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>云计算：大数据时代的系统工程（修订版）</td>
+	           <td>姚宏宇</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>视界—"互联网+"时代的创新与创业</td>
+	           <td>崔勇</td>
+	           <td>清华大学出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>神经网络与深度学习</td>
+	           <td>吴岸城</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>疯狂Android讲义（第3版）</td>
+	           <td>李刚</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>疯狂Java讲义（第3版）</td>
+	           <td>李刚</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr>
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>集体智慧编程</td>
+	           <td>Toby Segaran 著，莫映 王开福 译</td>
+	           <td>电子工业出版社</td>
+	           <td></td>
+             </tr> 
+             <tr>
+	           <td>2014</td>
+	           <td>1</td>
+	           <td>数据挖掘与机器学习——WEKA应用技术与实践</td>
+	           <td>袁梅宇</td>
+	           <td>清华大学出版社</td>
+	           <td></td>
+             </tr> 
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>深度学习：方法及应用</td>
+	           <td>谢磊</td>
+	           <td>机械工业出版社</td>
+	           <td></td>
+             </tr> 
+             <tr>
+	           <td>2016</td>
+	           <td>2</td>
+	           <td>机器学习</td>
+	           <td>[英] Peter Flach著，段菲 译</td>
+	           <td>人民邮电出版社</td>
+	           <td>赵璧赠1</td>
+             </tr> 
+             <tr>
+	           <td>2016</td>
+	           <td>1</td>
+	           <td>机器学习</td>
+	           <td>周志华</td>
+	           <td>清华大学出版社</td>
+	           <td><a href="http://cs.nju.edu.cn/zhouzh/zhouzh.files/publication/MLbook2016.htm">勘误</a></td>
+             </tr> 
+             <tr>
+	           <td>2012</td>
+	           <td>2</td>
+	           <td>推荐系统实践</td>
+	           <td>项亮</td>
+	           <td>人民邮电出版社</td>
+	           <td>郭梦娇赠1</td>
+             </tr> 
+             <tr>
+	           <td>2013</td>
+	           <td>2</td>
+	           <td>推荐系统 (Recommender Systems: An introduction)</td>
+	           <td>[奥地利] Dietmar Jannach 等著，蒋凡 译</td>
+	           <td>人民邮电出版社</td>
+	           <td>郭梦娇赠、赵璧赠</td>
+             </tr> 
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>推荐系统：技术、评估及高效算法</td>
+	           <td>Francesco Ricci 等著，李艳民 等译</td>
+	           <td>机器工业出版社</td>
+	           <td>吴宾赠</td>
+             </tr> 
+             <tr>
+	           <td>2004</td>
+	           <td>1</td>
+	           <td>Convex Optimization</td>
+	           <td>Boyd Stephen</td>
+	           <td>Cambridge University Press</td>
+	           <td>英文原版</td>
+             </tr> 
+             <tr>
+	           <td>2015</td>
+	           <td>1</td>
+	           <td>统计学习基础 第2版</td>
+	           <td>无</td>
+	           <td>世界图书出版公司</td>
+	           <td>英文</td>
+             </tr> 
+             <tr>
+	           <td>2007</td>
+	           <td>1</td>
+	           <td>Pattern.Recognition.and.Machine.Learning</td>
+	           <td>无</td>
+	           <td>无</td>
+	           <td>影印版</td>
+             </tr> 
+             <tr>
+	           <td>2009</td>
+	           <td>1</td>
+	           <td>Probabilistic Graphical Models: Principles and Techniques</td>
+	           <td>Daphne Koller</td>
+	           <td>无</td>
+	           <td>英文原版</td>
+             </tr> 
+      </tbody>
+    </table>
+</div>
+</section>
+
+<section id="e-sources">
+<div class="panel panel-success">
+<div class="panel-heading" style="margin-bottom:15px;">电子资源</div>
+<table id="otherTable" class="others table table-hover">
+    <tr>
+       <td width="50%"><a href="https://www.semanticscholar.org/">百度云分享：<a href="https://pan.baidu.com/s/1eRRiQ1k">研究组资源</a>（提取密码见微信群内公告）</td>
+       <td width="50%">资源更新：<a href="https://github.com/grahamjenson/list_of_recommender_systems">List of Recommender Systems (GitHub)</a></td>
+     </tr>
+     <tr>
+       <td><a href="https://stackedit.io/editor">视频课程：Introduction to Recommender Systems （百度云：RecSys）</a></td>
+       <td>矩阵分解：<a href="http://sifter.org/~simon/journal/20061211.html">Try This at Home</a></td>
+     </tr> 
+     <tr>
+     	<td>开源项目：<a href="http://www.librec.net/">LibRec官网</a>、<a href="https://github.com/guoguibing/librec">LibRec源码</a></td>
+        <td>&nbsp;</td>
+     </tr>
+     <tr>
+     	<td>深度学习：<a href="http://www.deeplearningbook.org/">Deep Learning (e-book)</a>，<a href="https://github.com/exacity/deeplearningbook-chinese">中文翻译版</a></td>
+        <td>机器学习与深度学习资料：<a href="https://github.com/ty4z2008/Qix/blob/master/dl.md">Chapter 1</a>，<a href="https://github.com/ty4z2008/Qix/blob/master/dl2.md">Chapter 2</a></td>
+     </tr>
+     <tr>
+     <td colspan="2">Latex：<a href="http://www.ctex.org/HomePage">安装</a>、<a href="http://www.ctex.org/OnlineDocuments">在线文档</a>、<a href="http://www.texample.net/tikz/">Tikz画图</a>、<a href="docs/symbols.pdf">数学符号</a>、<a href="http://www-h.eng.cam.ac.uk/help/tpl/textprocessing/squeeze.html">Squeezing space for research papers</a>、PDF教程（百度云：Latex）</td>
+     </tr>
+</table>
+</div>
+</section>
+
+<section id="others">
+<div class="panel panel-success">
+<div class="panel-heading" style="margin-bottom:15px;">其它资源</div>
+<table id="otherTable" class="others table table-hover">
+    <tr>
+       <td><a href="https://www.semanticscholar.org/">学术搜索：Semantic Scholar</a></td>
+       <td><a href="http://www.arxiv-sanity.com/">学术搜索：arxiv-samity.com</a></td>
+       <td><a href="http://www.netspeak.org/">论文写作：NetSpeak</a></td>
+       <td><a href="http://www.qr-code-generator.com/">QR Code Generator</a></td>
+     </tr>
+     <tr>
+       <td><a href="https://stackedit.io/editor">Markdown: StackEdit</a></td>
+       <td><a href="http://www.cs.waikato.ac.nz/ml/weka/">机器学习：WeKa</a></td>
+       <td><a href="http://suvrit.de/teach/ee227a/lectures.html">课程学习：Convex Optimizaiton</a></td>
+       <td><a href="https://www.kaggle.com/">算法竞赛：Kaggle</a></td>
+     </tr> 
+     <tr>
+     <td colspan="4">Office Word: 按住键盘上的ALT键不放，然后在小键盘区输入“9745”这几个数字，最后松开 ALT 键，自动变成框框中带勾符号。<a href="http://jingyan.baidu.com/article/e52e3615be278340c70c5147.html">>> More</a></td>
+     </tr>
+     <tr>
+     <td colspan="4">Office Word: <a href="https://jingyan.baidu.com/article/6181c3e069f200152ef1538e.html">word公式编号右对齐</a></td>
+     </tr>
+</table>
+</div>
+</section>
+
+</div>
+
+</body>
+</html>
