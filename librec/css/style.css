@@ -1,0 +1,60 @@
+@charset "utf-8";
+body {
+	font-family: "Helvetica Neue", Helvetica, Arial, "Microsoft Yahei UI", "Microsoft YaHei", SimHei, "\5B8B\4F53", simsun, sans-serif;
+}
+
+
+#footer {
+	
+	border-top: 1px solid #ccc;
+	text-align: center;
+	margin: 0;
+	padding: 0;
+}
+
+.get_start_btn {
+  border: 2px solid #FFFFFF;
+  border-radius: 5px;
+  color: #FFFFFF;
+  display: inline-block;
+  font-size: 26px;
+  padding: 9px 20px;
+}
+
+.feature-six{
+	font-size: 16px;
+	text-align: left;
+	padding: 20px;
+	
+}
+
+#myCarousel {
+	margin: 50px 0 0 0;
+}
+#navbar-collapse ul {
+	margin-top:0;
+}
+.carousel-inner img {
+	margin: 0 auto;
+}
+.carousel-control {
+	font-size: 100px;
+}
+
+
+#bottom-panel{
+	
+	font-size: 16px;
+	line-height: 26px;
+	color: #918b80;
+	background-color: #23527C;
+
+}
+
+.wrap{
+	width: 80%;
+	margin: 0 auto;
+	text-align: left;
+	box-sizing: border-box;
+	
+}

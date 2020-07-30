@@ -1,0 +1,103 @@
+body{
+	padding-top: 0px;
+	position: relative;	
+}
+
+header{
+	margin-top: 0px;
+	padding: 100px 0px;
+	text-align: center;
+	color: #ffffff;
+	background-color: #000018;
+	background: url(../images/bg15.png) no-repeat;
+/*	background-image: url(../images/bg15.jpg);*/
+	Background-size: 100% 100%;
+}
+
+
+header a {color: #fff;}
+header a:hover{ color:#9C3;}
+
+header .brand{
+	font-size:80px;
+	font-weight:400;
+}
+
+header p{
+	font-size:20px;
+}
+
+.container h1{
+	margin-bottom:30px;
+}
+
+.basic{
+	padding-top: 30px;
+	text-align: center;
+	font-size: 20px;
+}
+
+.intro p{
+	max-width:85%;
+}
+
+.btn-border{
+	padding: 10px 15px;
+	border: 1px solid #996;
+	font-weight: bold;
+	background-color: transparent;
+	margin-top:15px;
+	font-size:22px;
+}
+
+.btn-border:hover{
+	background-color:#996;
+	color:#fff;
+}
+
+hr.small{max-width: 100px;
+  margin: 50px auto;
+  border-color: rgba(0,0,0,.2);}
+  
+.downloads{
+	margin-top:20px;
+}
+
+.panel-body{
+	text-align:left !important;
+	font-size: 16px;
+}
+
+a{text-decoration: none; color:#000; }
+a:hover{text-decoration:underline; color:blue;}
+.blue-link{text-decoration: none; color: blue;}
+
+.highlight, #pubs .table a{
+	color:blue;
+}
+
+/* for tutorial */
+div.image{
+	text-align:center;
+	padding:20px 0px 50px 0px;
+}
+
+div.image2{
+	text-align:center;
+	padding:30px 0px 20px 0px;
+}
+
+.code{
+	color:blue;
+	padding:0px 5px;
+}
+
+.text-bold{
+	font-weight:bold;}
+.config{
+	color:#63F;
+}
+
+.title{
+	padding:50px 0px;
+}

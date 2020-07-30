@@ -1,0 +1,202 @@
+<!-- Note that this document is modified from: http://justdark.github.io/my_html/get_liner_samples.html, thanks to the original author's efforts. -->
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+	.top{margin:20px 0;}
+	.top input{width:25px;height:25px;border:1px solid #fff;border-radius:4px;background:#ddd;}
+</style>
+<script type="text/javascript" src="./js/jquery-1.11.2.min.js" /></script>
+<script type="text/javascript" src="./js/jquery.zclip.min.js" /></script>
+<script type="text/javascript">
+var dot=new Array();
+var colors=new Array("#000000","#FF0000","#80FF00","#00FFFF","#808080","#FF8000","#408080","#8000FF","#CCCC00");
+var now_color=1;
+$(function(){
+	init();
+	
+	$("#changeSize").click(function(){
+		if ($("#heights").val()!="" && $("#widths").val()!="")
+		{
+			$("#controlCanvas").attr("height",Math.abs($("#heights").val())*20+40);
+			$("#controlCanvas").attr("width",Math.abs($("#widths").val())*20+40);
+		
+			init();
+			var canvas = document.getElementById("controlCanvas"); 
+			var context = canvas.getContext("2d");
+			stage_info = canvas.getBoundingClientRect(); 
+		
+			for (var i=0;i<dot.length;i++)
+			{
+				cxt=context;
+				cxt.fillStyle=colors[dot[i].c];
+				cxt.beginPath();
+				cxt.arc(dot[i].x,stage_info.bottom-dot[i].y-8,5,0,Math.PI*2,true);
+				
+				cxt.closePath();
+				cxt.fill();
+				//alert("Demo:"+(dot[i].x-20)/20.0+";Y:"+(dot[i].y-20)/20.0);
+			}
+		}
+	});
+	
+	$("#getit").click(function(){
+		  var s="";
+		  for (var i=0;i<dot.length;i++)
+		  {
+			s+=(dot[i].x-20)/20.0+", ";
+			s+=(dot[i].y-20)/20.0;
+			if ($("#cls").is(':checked'))
+				s+=", "+dot[i].c
+
+			if(i<dot.length-1) s+='\n';
+		  }
+		  $("#result").val(s);	  
+	  }	
+	);
+	
+	$("#reset").click(function(){
+		canvas = $('#controlCanvas')[0];
+		canvas.width = canvas.width;
+		dot=[];
+		$("#result").val("");
+		init();
+	});
+	
+	
+	// The link with ID "copy-description" will copy
+    // the text of the paragraph with ID "description"
+	$('#copy-static').zclip({
+		path:'css/ZeroClipboard.swf',
+		copy:$('#result').val()
+	});
+    
+	// The link with ID "copy-dynamic" will copy the current value
+    // of a dynamically changing input with the ID "dynamic"
+
+    $('#copy').zclip({
+        path:'css/ZeroClipboard.swf',
+        copy:function(){return $('#result').val();},
+		setHandCursor:false
+    });    
+})
+
+function changeColor(color)
+{
+	now_color=color;
+	$("#c10").css('background-color', colors[color]);
+	$("#c10").val(now_color+'');
+}
+
+function init() 
+{
+	var canvas = document.getElementById("controlCanvas"); 
+	var context = canvas.getContext("2d"); 
+	var canvasWidth=$(canvas).attr("width");
+	
+	var canvasHeight=$(canvas).attr("Height");
+	var canvasWidthFloat=canvasWidth%20;
+	var canvasHeightFloat=canvasHeight%20; 
+	
+	canvas.onmousedown = function(event) {drawBegin(event);};
+		
+	function drawBegin(e) {
+
+		stage_info = canvas.getBoundingClientRect();
+		var X= (e.clientX-stage_info.left);
+		var Y= (e.clientY-stage_info.top);
+		var yy=(stage_info.bottom-e.clientY);
+			
+		cxt=context;
+		cxt.fillStyle=colors[now_color];
+		cxt.beginPath();
+		cxt.arc(X,Y,5,0,Math.PI*2,true);
+		cxt.closePath();
+		cxt.fill();
+		dot[dot.length]={x:X,y:yy,c:now_color};
+		//alert("Position:"+dot[dot.length-1].x+";Y:"+yy);
+    }
+
+	for ( var x = 20; x <canvasWidth-20; x += 20) { 
+		context.moveTo(x, canvasHeightFloat); 
+		context.lineTo(x, canvasHeight-20); 
+	} 
+
+	for ( var y = 20; y <canvasHeight-20; y += 20) { 
+		context.moveTo(20, y+canvasHeightFloat); 
+		context.lineTo(canvasWidth-20, y+canvasHeightFloat); 
+	} 
+	
+	context.strokeStyle = "#ddd"; 
+	context.stroke(); 
+	context.beginPath(); 
+	
+	context.moveTo(20, canvasHeight-20); 
+	context.lineTo(canvasWidth-20, canvasHeight-20); 
+	context.moveTo(canvasWidth-35, canvasHeight-30); 
+	context.lineTo(canvasWidth-20, canvasHeight-20); 
+	context.lineTo(canvasWidth-35, canvasHeight-10); 
+	//
+	context.moveTo(20, canvasHeight-20); 
+	context.lineTo(20, canvasHeightFloat); 
+	context.moveTo(10, canvasHeightFloat+15); 
+	context.lineTo(20, canvasHeightFloat); 
+	context.lineTo(30, canvasHeightFloat+15);
+	
+	context.strokeStyle = "#000"; 
+	context.stroke(); 
+	var yvalue=0
+	var yvalueMax=parseInt((canvasHeight-20)/20)
+	//
+	for(var x=20;x<canvasHeight;x+=20)
+	{
+		if(yvalue==yvalueMax)
+		break;
+		context.fillText(yvalue++,5,canvasHeight-x+3);//
+	}
+	//
+	var xvalue=parseInt((canvasWidth-20)/20)-1
+	for(var y=20;y<canvasWidth;y+=20)
+	{
+		if(xvalue==0)
+			break;
+		context.fillText(xvalue--,canvasWidth-y-canvasWidthFloat-3,canvasHeight-5);//
+	}
+
+}
+
+</script>
+
+<title>Sample Generator</title>
+</head>
+<body>
+<div style="width:800px; margin:auto">
+<canvas id="controlCanvas" height="400" width="900"></canvas>
+<br>
+Width:<input id="widths" type="text" size="10px;"/>
+Height: <input id="heights" type="text" size="10px;"/>
+<button id="changeSize">Change Canvas Size</button>
+<input type="checkbox"  name="output" id="cls" checked="checked">Generate labels</input>
+<button id="getit">Generate Sample</button>
+<button id="copy">Copy to Clipboard</button>
+<button id="reset">Clear Canvas</button>
+
+<div class="top">
+<div id="color">
+            Select Pointer Color:
+            <input style="background:#000000;" id="c1" type="button" value="0" onClick="changeColor(0)"/>
+            <input style="background:#FF0000;" id="c2" type="button" value="1" onClick="changeColor(1)" />
+            <input style="background:#80FF00;" id="c3" type="button" value="2" onClick="changeColor(2)"/>
+            <input style="background:#00FFFF;" id="c4" type="button" value="3" onClick="changeColor(3)"/>
+            <input style="background:#808080;" id="c5" type="button" value="4" onClick="changeColor(4)"/>
+            <input style="background:#FF8000;" id="c6" type="button" value="5" onClick="changeColor(5)"/>
+            <input style="background:#408080;" id="c7" type="button" value="6" onClick="changeColor(6)"/>
+            <input style="background:#8000FF;" id="c8" type="button" value="7" onClick="changeColor(7)"/>
+            <input style="background:#CCCC00;" id="c9" type="button" value="8" onClick="changeColor(8)"/>
+Selected Color: <input style="background-color:red;" id="c10" type="button" value="1"/>
+</div>
+</div>
+<textarea cols="120" id="result" rows="15" ></textarea>
+</div>
+</body> 
+</html>

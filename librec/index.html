@@ -1,0 +1,263 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LibRec - A Java Library for Recommender Systems</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="js/jquery-1.11.2.min.js"></script>
+   		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="js/bootstrap.min.js"></script>
+    
+    	<!-- plugins -->
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="stylesheet" type="text/css" href="css/style.css" />
+		<link rel="shortcut icon" href="images/network.ico" />
+        <script type="text/javascript" src="js/jquery.dataTables.min.js"></script>
+        
+        <!-- mine -->
+        <link href="css/adds.css" rel="stylesheet">
+        <script type="text/javascript" src="js/mine.js"></script>        
+    </head>
+
+<body id="home" data-spy="scroll" data-target="#myNav" data-offset="55">
+
+
+
+<header >
+	<!--<div class="navbar navbar-default navbar-fixed-top navbar-transparent" id="myNav" style="background-color: transparent; height:50px;">-->
+<nav id="myNav"class="navbar navbar-default navbar-fixed-top navbar-transparent" style="background-color: transparent; ">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <!--<a class="navbar-brand page-scroll" href="#home">LibRec</a>-->
+      <a href="./index.html" class="navbar-brand logo" style="margin: 0;padding: 0;"><img src="images/logo-white.png" alt="LibRec" class="logo-in" style="height: 100% ;margin: 0;padding: 0;"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-navbar" style="color: #FFFFFF;">
+    	
+      <ul class="nav navbar-nav navbar-right" >
+        <li class="dropdown">          
+          <a href="#"><span class="glyphicon glyphicon-home"></span> <font color="#FFFFFF">Home</font></a> 
+        </li>
+        <li><a href="./download.html"><span class="glyphicon glyphicon-download-alt"></span> <font color="#FFFFFF">Download</font></a></li>
+        <li><a href="http://wiki.librec.net/"><span class="glyphicon glyphicon-fire"></span> <font color="#FFFFFF">Documentation</font></a></li>  
+        <li class="dropdown" style="margin-left:-15px;">          
+          <a href="#" class="dropdown-toggle caret-after" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a> 
+          <ul class="dropdown-menu" role="menu"> 
+            <li><a href="http://librec.net/doc/librec-v2.0/">API Documents</a></li>
+          </ul>
+        </li>             
+        <li><a href="./datasets.html"><span class="glyphicon glyphicon-list"></span> <font color="#FFFFFF">Datasets</font></a></li>
+        <li><a href="./community.html"><span class="glyphicon glyphicon-user"></span> <font color="#FFFFFF">Community</font></a></li>
+<!--         <li><a href="./developers.html">Developers</a></li> -->
+<!--        <li><a href="./cn/index.html">中文</a></li> -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+<!--</div>-->
+<div class="container" id="header0">
+<!-- <span class="brand">LibRec</span> -->
+<br /><br />
+<img src="images/logo-white.png" height="158" width="298"/>
+<p style="font-size:28px; font-family:'Courier New', Courier, monospace">Exploration makes surprise</p>
+<h1>A Leading Java Library for Recommender Systems</h1>
+<iframe src="https://ghbtns.com/github-btn.html?user=guoguibing&repo=librec&type=star&count=true&size=large" frameborder="0" scrolling="0" width="150px" height="30px"></iframe>
+<iframe src="https://ghbtns.com/github-btn.html?user=guoguibing&repo=librec&type=fork&count=true&size=large" frameborder="0" scrolling="0" width="140px" height="30px"></iframe>
+<br /><br /><br />
+
+<a class="get_start_btn" href="http://wiki.librec.net" role="button">Get Started</a>
+</div>
+</header>
+
+
+
+<script type="text/javascript">
+	
+	$(window).scroll( function(){
+		
+    var height=$("#header0").offset().top-$(window).scrollTop(); 
+    
+    if(height<"50"){
+        $("#myNav").css("background-color","#03346E");
+   
+    }else{
+        $("#myNav").css("background-color","transparent");
+ 
+    }
+  
+});
+    	
+    	
+</script>
+
+<!-- main content -->
+
+<div class="jumbotron" style="background-color: #D0DCE9;">
+	<div class="container ">
+		<div class="text-center"><h1>Overview</h1></div>
+		<div class="row">
+		<div class="col-lg-5 col-sm-5">
+			
+			<p class="center-block">
+				<br /><br /><br /><br />
+			Recommender systems have been well recognized as a typical application of Big Data and Machine Learning. LibRec is a GPL-licensed Java library  (Java version 1.7+ required), aiming to solve two classic tasks in recommender systems, i.e.,<span style="color:#96F; font-weight:bold;"> <a href="./example.html">rating prediction</a></span> and <span style="color:#96F; font-weight:bold;"><a href="./example.html#ranking">item ranking</a></span>  by implementing a suite of state-of-the-art recommendation algorithms.
+			
+			It has been listed by the RecSys Wiki (see the <a href="http://www.recsyswiki.com/wiki/LibRec">LibRec page</a>). <br>
+			</p>
+		</div>
+
+		<div class="col-lg-7 col-sm-7">
+	
+			<div id="myCarousel" class="carousel slide">		
+			<div class="carousel-inner">
+				<div class="item active" style="height: 800;">
+					<img src="images/modules.jpg" alt="LibRec Modules" width="800" height="358" class="img-responsive" >					
+					<div class="text-center"><h3>LibRec Modules</h3></div>
+				</div>
+				<div class="item" style="height: 800;">
+					<img src="images/processflow.png" alt="LibRec Processing Flow" width="800" height="358" class="img-responsive">
+					<div class="text-center"><h3>LibRec Processing Flow</h3></div>
+				</div>
+			</div>
+			
+			<ol class="carousel-indicators">
+				<li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+				<li data-target="#myCarousel" data-slide-to="1"></li>
+			</ol>
+			<!--<a href="#myCarousel" data-slide="prev" class="carousel-control left" style="background-color: #FFFFFF;">&lsaquo;</a>
+			<a href="#myCarousel" data-slide="next" class="carousel-control right"style="background-color: #FFFFFF;">&rsaquo;</a>-->
+			</div>
+		</div>
+
+	    </div>
+    </div>
+
+</div>
+
+
+<script type="text/javascript">
+	
+
+	
+	
+$(function () {
+
+	//轮播自动播放
+	$('#myCarousel').carousel({
+		//自动4秒播放
+		interval : 4000,
+	});
+
+	//设置垂直居中
+	$('.carousel-control').css('line-height', $('.carousel-inner img').height() + 'px');
+	$(window).resize(function () {
+		var $height = $('.carousel-inner img').eq(0).height() || 
+					  $('.carousel-inner img').eq(1).height() 
+		$('.carousel-control').css('line-height', $height + 'px');
+	});
+
+});
+</script>
+<div class="jumbotron "  style="background-color: white;">	
+	<div class="container ">
+	<div class="text-center"><h1>Features</h1></div>
+	
+    <div class="row">
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-oil"> </span> Algorithms</h2>
+	    <div class="feature-six">More than 70 recommendation algorithms have been implemented, and more will be  added in the LibRec. </div>                  
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-link"> </span> Composition</h2>
+	    <div class="feature-six">LibRec has six main components including data split, conversion, similarity, algorithms, evaluators and filters. </div> 
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-cog"> </span> Configuration</h2>
+	    <div class="feature-six">LibRec is based on low coupling, flexible and either external textual or internal API configuration. </div>
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-wrench"> </span> Expansion</h2>
+	    <div class="feature-six">LibRec has more efficient implementations than other counterparts while producing comparable  accuracy. </div>       
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-flash"> </span> Performance</h2>
+	    <div class="feature-six">LibRec can get executed in a few lines of codes, and a number of demos are provided for easy start. </div> 
+      </div>
+      <div class="col-lg-4 col-sm-6">
+        <h2><span class="glyphicon glyphicon-leaf"> </span> Usage</h2>
+	    <div class="feature-six">LibRec provides a set of recommendation interfaces for easy expansion to implement new recommenders.  </div>               
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="jumbotron" style="background-color: #EDF2F8;">
+	<div class="container">
+		<div class="text-center"><h1>Application</h1></div>
+	  	<h2 align="left">&nbsp;&nbsp;&nbsp;Research Publications<small>&nbsp;&nbsp;&nbsp;A number of papers adopting LibRec can be found here. </small></h2>	
+ 		<table class="table table-hover" style="font-size:medium;text-align: left;">
+ 			<tr><td>Guibing Guo, Jie Zhang, Zhu Sun and Neil Yorke-Smith, LibRec: A Java Library for Recommender Systems, in Posters, Demos, Late-breaking Results and Workshop Proceedings of the 23rd Conference on User Modelling, Adaptation and Personalization (UMAP), 2015.</td></tr>
+ 			<tr><td>G. Guo, J. Zhang and N. Yorke-Smith, TrustSVD: Collaborative Filtering with Both the Explicit and Implicit Influence of User Trust and of Item Ratings, in Proceedings of the 29th AAAI Conference on Artificial Intelligence (AAAI), 2015, 123-129.</td></tr>
+ 			<tr><td>G. Guo, J. Zhang and N. Yorke-Smith, A Novel Recommendation Model Regularized with User Trust and Item Ratings, IEEE Transactions on Knowledge and Data Engineering (TKDE), 28(7), 1607-1620, 2016. </td></tr>
+ 		</table>
+ 		</table>
+ 		<h2 align="left">&nbsp;&nbsp;&nbsp;Industrial Application&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<small>Please contact us for an industrial application of LibRec via <a href="mailto:guogb@swc.neu.edu.cn"> guogb@swc.neu.edu.cn</a></small></h2>
+    </div>
+</div>
+
+
+<!-- End of Main Content -->
+<div >
+	<br /><br />
+	<div class="center-block row" style="text-align: center;" >
+		<h1 ><a href="download.html"><font size="13">Try LibRec Now </font> <span class="badge">download</span></a></h1>
+	</div>
+	<br /><br /><br />
+</div>
+
+
+   <footer id="footer" style="background-color:#222222;">
+   	  <table width="100%">
+   	  	<tr>
+   	  		
+   	  		<td width="30%"><br/><br/><font color="#ADADAD" size="4">Follow Us</font></td>
+   	  		<td width="7%">&nbsp;</td>
+   	  		<td width="20%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via Gitter &nbsp;&nbsp;</font></td>
+						<td><br/><br/><a href="https://gitter.im/librec/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank"><img src="images/gitter.jpg"></a></td>
+				</tr></table>
+   	  		</td>
+   	  		<td width="15%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via Weibo &nbsp;&nbsp;</font></td>
+						<td ><br/><br/><div ><a href="http://weibo.com/guoguibing" target="_blank"><img src="images/weibo.png" height="40" width="40"></a></div></td>
+				</tr></table>
+   	  		</td>
+   	  		<td width="20%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via WeChat &nbsp;&nbsp;</font> </td>
+						<td><div style="margin: 15px;"><img src="images/mp.jpg" height="110px" width="110px"></div></td>
+				</tr></table>
+   	  		</td>
+   	  		
+   	  		<td width="7%">&nbsp;</td>
+   	  	</tr>
+   	  </table>
+   </footer>
+</body>
+</html>

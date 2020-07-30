@@ -1,0 +1,340 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Datasets</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- Bootstrap -->
+        <link href="css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="js/jquery-1.11.2.min.js"></script>
+   		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="js/bootstrap.min.js"></script>
+    
+    	<!-- plugins -->
+		<link rel="stylesheet" type="text/css" href="css/table.css" />
+		<link rel="shortcut icon" href="images/network.ico" />
+         <link rel="stylesheet" type="text/css" href="css/style.css" />       
+        <!-- mine -->
+        <link href="css/adds.css" rel="stylesheet">
+        <script type="text/javascript" src="js/mine.js"></script>        
+    </head>
+
+<body id="home" data-spy="scroll" data-target="#myNav" data-offset="55">
+
+<nav id="myNav"class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a href="./index.html" class="navbar-brand logo" style="margin: 0;padding: 0;"><img src="images/logo.png" alt="LibRec" class="logo-in" style="height: 100% ;margin: 0;padding: 0;"></a>
+    </div>
+
+    <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="./index.html"><span class="glyphicon glyphicon-home"></span> Home</a></li>
+        <li><a href="./download.html"><span class="glyphicon glyphicon-download-alt"></span> Download</a></li>
+        <li><a href="http://wiki.librec.net/"><span class="glyphicon glyphicon-fire"></span> Documentation</a></li>
+        <li class="dropdown" style="margin-left:-15px;">          
+          <a href="#" class="dropdown-toggle caret-after" data-toggle="dropdown" role="button" aria-expanded="false"><span class="caret"></span></a> 
+          <ul class="dropdown-menu" role="menu"> 
+            <li><a href="http://librec.net/doc/librec-v2.0/">API Documents</a></li>
+          </ul>
+        </li>
+        <li class="dropdown active">          
+          <a href="#" class="dropdown-toggle caret-after" data-toggle="dropdown" role="button" aria-expanded="false"><span class="glyphicon glyphicon-list"></span> Datasets<span class="caret"></span></a> 
+          <ul class="dropdown-menu" role="menu"> 
+            <li><a class="page-scroll" href="#filmtrust">FilmTrust</a></li>
+            <li><a class="page-scroll" href="#ciaodvd">CiaoDVD</a></li>
+            <li><a class="page-scroll" href="#random">Random</a></li>
+            <li><a class="page-scroll" href="#list">Collection</a></li>
+          </ul>
+        </li>
+        <li><a href="./community.html"><span class="glyphicon glyphicon-user"></span> Community</a></li>
+<!--        <li><a href="./developers.html">Developers</a></li> -->
+<!--        <li><a href="./cn/index.html">中文</a></li>  -->
+      </ul>
+    </div><!-- /.navbar-collapse -->
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+<!--
+<div class="title">
+<h1 class="text-center">Data Sets for Recommender Systems</h1>
+<h3 class="text-center text-muted">&mdash; a collection of commonly used data sets</h3>
+</div>
+-->
+
+<!-- Section: our datasets -->
+<br /><br /><br /><br />
+<div id="ours" style="margin-top: 15px;">
+  <div class="panel panel-default">
+  <div class="panel-heading text-bold">Declaration</div>
+  <div class="panel-body">The datasets that we crawled are originally used in our own research and published papers. We make them public and accessible as they may benefit more people's research. Please cite our papers as an appreciation of our efforts in data collection, if you find they are useful to your research.  </div>
+  </div>
+</div>
+<hr class="small">
+
+<div id="filmtrust">
+  <h2>FilmTrust</h2>
+  <div class="alert alert-info">
+    FilmTrust is a small dataset crawled from the entire <a href="http://trust.mindswap.org/FilmTrust/" target="_blank">FilmTrust</a> website in June, 2011 [<a href="./datasets/filmtrust.zip" class="blue-link">download</a>].
+  </div>
+  <ul class="list-group">
+  <li class="list-group-item">ratings.txt: 35497 item ratings w format: userId, movieId, movieRating</li>
+  <li class="list-group-item">trust.txt:  1853 directed trust ratings w format: trustorId, trusteeId, trustRating</li>
+  <pre>@INPROCEEDINGS{guo2013novel,
+  author = {Guo, G. and Zhang, J. and Yorke-Smith, N.},
+  title = {A Novel Bayesian Similarity Measure for Recommender Systems},
+  booktitle = {Proceedings of the 23rd International Joint Conference on Artificial Intelligence (IJCAI)},
+  year = {2013},
+  pages = {2619-2625}
+}</pre>
+</ul>
+</div>
+<hr class="small">
+
+<div id="ciaodvd">
+  <h2>CiaoDVD</h2>
+  <div class="alert alert-info">
+   CiaoDVD is a dataset crawled from the entire category of <strong>DVDs</strong> from the <a href="http://dvd.ciao.co.uk/">dvd.ciao.co.uk</a> website in December, 2013 [<a href="./datasets/CiaoDVD.zip" class="blue-link">download</a>].
+  </div>
+  <ul class="list-group">
+  <li class="list-group-item">movie-ratings.txt: 72.7K movie ratings w format: userId, movieId, movie-categoryId, reviewId, movieRating, reviewDate</li>
+  <li class="list-group-item">review-ratings: 1.6M ratings to the movie reviews w format: userId, reviewId, reviewRating (helpfulness)</li>
+  <li class="list-group-item">trusts.txt:  40K directed trust ratings w format: trustorId, trusteeId, trustRating</li>
+  <pre>
+@INPROCEEDINGS{guo2014etaf,
+  author = {Guo, G. and Zhang, J. and Thalmann, D. and Yorke-Smith, N.},
+  title = {ETAF: An Extended Trust Antecedents Framework for Trust Prediction},
+  booktitle = {Proceedings of the 2014 International Conference on Advances in Social Networks Analysis and Mining (ASONAM)},
+  pages = {540-547},
+  year = {2014}
+} </pre>
+</ul>
+</div>
+<hr class="small">
+
+<div id="random">
+  <h2>Random</h2>
+  <div class="alert alert-info">
+    To generate a small sample of random data, you can use the [<a href="datagen.html" target="_blank" class="blue-link">data generator</a>] that we designed.
+  </div>
+  <iframe src="datagen.html" width="100%" style=" min-height:780px; overflow:scroll;"></iframe>
+</div>
+<hr class="small">
+
+<!-- Section: dataset collections -->
+<div id="list">
+<h2>A Short List of Recommendation Data Sets</h2>
+<div class="alert alert-warning">More data sets will be added to the following table. </div>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th rowspan="2" scope="col">Data Set</th>
+    <th colspan="5" scope="col" class="text-center">Basic Meta</th>
+    <th colspan="3" scope="col" class="text-center">User Context</th>
+    <th colspan="2" scope="col" class="text-center">Other Contexts</th>
+    </tr>
+  <tr>
+    <th class="text-center">Users</th>
+    <th class="text-center">Items</th>
+    <th colspan="2" class="text-center">Ratings (Scale)</th>
+    <th class="text-center">Density</th>
+    <th class="text-center">Users</th>
+    <th colspan="2" class="text-center">Links (Type)</th>
+    <th class="text-center">Items</th>
+    <th class="text-center">Labels</th>
+    </tr>
+  <tr>
+    <td><a href="http://www.public.asu.edu/~jtang20/datasetcode/truststudy.htm">Ciao</a></td>
+    <td>7,375</td>
+    <td>99,746</td>
+    <td>278,483</td>
+    <td>[1, 5]</td>
+    <td>0.0379%</td>
+    <td>7,375</td>
+    <td>111,781</td>
+    <td width="5%">Trust</td>
+    <td>General</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="https://www.cse.cuhk.edu.hk/irwin.king.new/pub/data/douban">Douban</a></td>
+    <td>129,490</td>
+    <td>58,541</td>
+    <td>16,830,839</td>
+    <td>[1, 5]</td>
+    <td>0.222%</td>
+    <td>129,490</td>
+    <td>1,692,952</td>
+    <td>Friendship</td>
+    <td>Movie</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://www.trustlet.org/wiki/Epinions_dataset">Epinions (665K)</a></td>
+    <td>40,163</td>
+    <td>139,738</td>
+    <td width="6%">664,824</td>
+    <td width="5%">[1, 5]</td>
+    <td>0.0118%</td>
+    <td width="4%">49,289</td>
+    <td width="5%">487,183</td>
+    <td>Trust</td>
+    <td>General</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://alchemy.cs.washington.edu/data/epinions/">Epinions (510K)</a></td>
+    <td>71,002</td>
+    <td>104,356</td>
+    <td>508,960</td>
+    <td>[1, 5]</td>
+    <td>0.00687%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Trust</td>
+    <td>General</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://www.trustlet.org/wiki/Extended_Epinions_dataset">Epinions (Extended)</a></td>
+    <td>120,492</td>
+    <td>755,760</td>
+    <td>13,668,320</td>
+    <td>[1, 5]</td>
+    <td>0.015%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Trust<br>
+Distrust</td>
+    <td>General</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://www.cs.sfu.ca/~sja25/personal/datasets/">Flixster</a></td>
+    <td>147,612</td>
+    <td>48,794</td>
+    <td>8,196,077</td>
+    <td>[0.5, 5.0]</td>
+    <td>0.1138%</td>
+    <td>787,213</td>
+    <td>11,794,648</td>
+    <td>Friendship</td>
+    <td>Movie</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="#filmtrust">FilmTrust</a></td>
+    <td>1,508</td>
+    <td>2,071</td>
+    <td>35,497</td>
+    <td>[0.5, 4.0]</td>
+    <td>1.14%</td>
+    <td>1,642</td>
+    <td>1,853</td>
+    <td>Trust</td>
+    <td>Movie</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://www.ieor.berkeley.edu/~goldberg/jester-data/">Jester</a></td>
+    <td>59,132</td>
+    <td>140</td>
+    <td>1,761,439</td>
+    <td>Explicit</td>
+    <td>21.28%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Joke</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td><a href="http://grouplens.org/datasets/movielens/">MovieLens 100K</a></td>
+    <td>943</td>
+    <td>1,682</td>
+    <td>100,000</td>
+    <td>[1, 5]</td>
+    <td>6.30%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Movie</td>
+    <td><span class="label label-default">Tag</span></td>
+    </tr>
+  <tr>
+    <td><a href="http://grouplens.org/datasets/movielens/">MovieLens 1M</a></td>
+    <td>6,040</td>
+    <td>3,706</td>
+    <td>1,000,209</td>
+    <td>[1, 5]</td>
+    <td>4.47%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Movie</td>
+    <td><span class="label label-default">Tag</span></td>
+    </tr>
+  <tr>
+    <td><a href="http://grouplens.org/datasets/movielens/">MovieLens 10M</a></td>
+    <td>71,567</td>
+    <td>10,681</td>
+    <td>10,000,054</td>
+    <td>[1, 5]</td>
+    <td>1.308%</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>&nbsp;</td>
+    <td>Movie</td>
+    <td><span class="label label-default">Tag</span></td>
+    </tr>
+  </table>
+</div>
+
+</div>
+
+   <footer id="footer" style="background-color:#222222;">
+   	  <table width="100%">
+   	  	<tr>
+   	  		
+   	  		<td width="30%"><br/><br/><font color="#ADADAD" size="4">Follow Us</font></td>
+   	  		<td width="7%">&nbsp;</td>
+   	  		<td width="20%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via Gitter &nbsp;&nbsp;</font></td>
+						<td><br/><br/><a href="https://gitter.im/librec/Lobby?utm_source=badge&utm_medium=badge&utm_campaign=pr-badge&utm_content=badge" target="_blank"><img src="images/gitter.jpg"></a></td>
+				</tr></table>
+   	  		</td>
+   	  		<td width="15%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via Weibo &nbsp;&nbsp;</font></td>
+						<td ><br/><br/><div ><a href="http://weibo.com/guoguibing" target="_blank"><img src="images/weibo.png" height="40" width="40"></a></div></td>
+				</tr></table>
+   	  		</td>
+   	  		<td width="20%">
+				<table><tr>
+						<td><br/><br/><font color="#ADADAD" size="4">via WeChat &nbsp;&nbsp;</font> </td>
+						<td><div style="margin: 15px;"><img src="images/mp.jpg" height="110px" width="110px"></div></td>
+				</tr></table>
+   	  		</td>
+   	  		
+   	  		<td width="7%">&nbsp;</td>
+   	  	</tr>
+   	  </table>
+    </footer>
+
+
+
+</body>
+</html>
