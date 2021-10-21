@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LibRec - Getting Started</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- Bootstrap -->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="../../js/jquery-1.11.2.min.js"></script>
+   		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="../../js/bootstrap.min.js"></script>
+    
+    	<!-- plugins -->
+		<link rel="stylesheet" type="text/css" href="../../css/table.css" />
+		<link rel="shortcut icon" href="../../images/network.ico" />
+                
+        <!-- mine -->
+        <link href="../../css/adds.css" rel="stylesheet">
+        <script type="text/javascript" src="../../js/mine.js"></script>        
+    </head>
+
+<body id="home" data-spy="scroll" data-target="#myNav" data-offset="55">
+
+<nav id="myNav"class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="./index.html">LibRec</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+<div class="title">
+<h1 class="text-center">A Simple Tutorial on the LibRec</h1>
+<h3 align="center"><a href="#overview" class="page-scroll">Overview</a>, <a href="#algos" class="page-scroll">Algorithms</a>, <a href="#run" class="page-scroll">How-to-Run</a>, <a href="#config" class="page-scroll">Configuration</a>, <a href="#develop" class="page-scroll">Development</a></h3>
+</div>
+
+<!-- overview -->
+<div id="overview">
+
+<div class="panel panel-primary">
+<div class="panel-heading text-bold">Overview</div>
+<p style="text-align:justify; padding:5px;"><strong>LibRec</strong> is a GPL-licensed Java library for recommender systems (version <strong>1.7</strong> or higher required). It implements a suite of state-of-the-art recommendation algorithms. It consists of three major components: <strong>interfaces</strong>,<strong> data structures</strong> and <strong>recommendation algorithms</strong>, as illustrated in Figure 1. Interfaces defines a number of abstract recommenders to be extended or implemented by specific algorithms, while data dtructures provides functionality to store and read data efficiently, and frequently used by a series of recommendation algorithms. </p>
+
+<div class="image" style="margin:-30px 0px;"><img src="../../images/librec.png" alt="LibRec Class Structures"><br>
+Figure 1. The Class Structure of the LibRec Library
+</div>
+</div>
+
+
+
+<div class="panel panel-info">
+<div class="panel-heading text-bold">Features</div>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Cross-platform:</strong> as a Java software, LibRec can be easily deployed and executed in any platforms, including MS Windows, Linux and Mac OS. </li>
+  <li class="list-group-item"><strong>Fast execution:</strong> LibRec runs much <span style="color:red;"><strong>faster</strong></span> than other libraries (see a <a href="./example.html">detailed comparison</a> on various datasets). </li>
+  <li class="list-group-item"><strong>Easy  configuration:</strong> LibRec configs recommenders using a configuration file: <span style="color:black;">librec.conf (see <a href="tutorial.html#config">how to</a> config a recommender)</span>. </li>
+  <li class="list-group-item"><strong>Easy expansion:</strong> LibRec provides a set of  recommendation interfaces for easy exapansion (see<a href="./tutorial.html#expansion"> how to</a> implement a new recommender). </li>
+</ul>
+</div>
+
+
+<div class="panel panel-info">
+<div class="panel-heading text-bold">Interfaces</div>
+<ul class="list-group">
+  <li class="list-group-item"><strong>Recommender:</strong> a general inferface for algorithms that are not based on iterative learning or social information, such as UserKNN, ItemKNN, SlopeOne, etc. </li>
+  <li class="list-group-item"><strong>IterativeRecommender:</strong> an interface for algorithms that are based on iterative learning methods, such as matrix factorization based approaches, RegSVD, SVD++, PMF, etc.</li>
+  <li class="list-group-item"><strong>GraphicRecommender:</strong> an interface for algorithms that are based on probabilistic graphic models, such as LDA, URP, etc. </li>
+  <li class="list-group-item"><strong>SocialRecommender:</strong> an interface for algorithms that adopt social information, such as SocialMF, TrustMF, TrustSVD, etc. </li>
+  <li class="list-group-item"><strong>ContextRecommender:</strong> an interface for algorithms that make use of side contextual information, such as TimeSVD++, etc. </li>
+</ul>
+</div>
+</div>
+
+<hr class="small">
+
+<div id="algos" class="table-responsive">
+<h2>Algorithms</h2>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Rating Prediction</th>
+    <th scope="col">References</th>
+  </tr>
+  <tr>
+    <td>BiasedMF</td>
+    <td>Koren, Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model, KDD 2008.</td>
+  </tr>
+  <tr>
+    <td>BPMF</td>
+    <td>Salakhutdinov and Mnih, Bayesian Probabilistic Matrix Factorization using Markov Chain Monte Carlo, ICML 2008.</td>
+  </tr>
+  <tr>
+    <td>GPLSA</td>
+    <td>Thomas Hofmann, Collaborative Filtering via Gaussian Probabilistic Latent Semantic Analysis, SIGIR 2003.</td>
+  </tr>
+  <tr>
+    <td>LDCC</td>
+    <td>Wang et al., Latent Dirichlet Bayesian Co-Clustering, Machine Learning and Knowledge Discovery in Databases, 2009.</td>
+  </tr>
+  <tr>
+    <td>NMF</td>
+    <td>Seung and Lee, Algorithms for Non-Negative Matrix Factorization, NIPS 2001.</td>
+  </tr>
+  <tr>
+    <td>PD</td>
+    <td>Pennock et al., Collaborative Filtering by Personality Diagnosis: A Hybrid Memory- and Model-based Approach, UAI 2000.</td>
+    </tr>
+  <tr>
+    <td>PMF</td>
+    <td>Salakhutdinov and Mnih, Probabilistic Matrix Factorization, NIPS 2008.</td>
+  </tr>
+  <tr>
+    <td>RegSVD</td>
+    <td>Arkadiusz Paterek, Improving Regularized Singular Value Decomposition Collaborative Filtering, KDD Cup and Workshop 2007.</td>
+  </tr>
+  <tr>
+    <td>RfRec</td>
+    <td>Gedikli et al., RF-Rec: Fast and Accurate Computation of Recommendations based on Rating Frequencies, IEEE CEC, 2011.</td>
+  </tr>
+  <tr>
+    <td>RSTE</td>
+    <td>Ma et al., Learning to Recommend with Social Trust Ensemble, SIGIR 2009.</td>
+  </tr>
+  <tr>
+    <td>SlopeOne</td>
+    <td>Lemire and Maclachlan, Slope One Predictors for Online Rating-Based Collaborative Filtering, SDM 2005.</td>
+  </tr>
+  <tr>
+    <td>SocialMF</td>
+    <td>Jamali and Ester, A Matrix Factorization Technique with Trust Propagation
+      for Recommendation in Social Networks, RecSys 2010.</td>
+    </tr>
+ <tr>
+   <td>SoRec</td>
+    <td>Ma et al., SoRec: Social Recommendation Using Probabilistic Matrix Factorization, SIGIR 2008.</td>
+    </tr>
+  <tr>
+    <td>SoReg</td>
+    <td>Ma et al., Recommender systems with social regularization, WSDM 2011.</td>
+    </tr>
+  <tr>
+    <td>SVD++</td>
+    <td>Koren, Factorization Meets the Neighborhood: a Multifaceted Collaborative Filtering Model, KDD 2008.</td>
+    </tr>
+  <tr>
+    <td>timeSVD++</td>
+    <td>Koren, Collaborative Filtering with Temporal Dynamics, KDD 2009.</td>
+    </tr>
+  <tr>
+    <td>TrustMF</td>
+    <td>Yang et al., Social Collaborative Filtering by Trust, IJCAI 2013.</td>
+    </tr>
+  <tr>
+    <td>TrustSVD</td>
+    <td>Guo et al., TrustSVD: Collaborative Filtering with Both the Explicit and Implicit Influence of User Trust and of Item Ratings, AAAI 2015.</td>
+    </tr>
+  <tr>
+    <td>URP</td>
+    <td>Benjamin Marlin, Modeling user rating profiles for collaborative filtering, NIPS 2003.<br>
+      Nicola Barbieri, Regularized gibbs sampling for user profiling with soft constraints, ASONAM 2011.</td>
+  </tr>
+  </table>
+  
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Item Ranking</th>
+    <th scope="col">References</th>
+    </tr>
+  <tr>
+    <td>AR</td>
+    <td>Kim and Kim, A Recommendation Algorithm Using Multi-Level Association Rules, WI 2003.</td>
+  </tr>
+  <tr>
+    <td>AoBPR</td>
+    <td>Rendle and Freudenthaler, Improving pairwise learning for item recommendation from implicit feedback, WSDM 2014.</td>
+  </tr>
+  <tr>
+    <td>BPR</td>
+    <td>Rendle et al., BPR: Bayesian Personalized Ranking from Implicit Feedback, UAI 2009.</td>
+  </tr>
+  <tr>
+    <td>CLiMF</td>
+    <td>Shi et al., CLiMF: Learning to Maximize Reciprocal Rank with Collaborative Less-is-More Filtering, RecSys 2012.</td>
+    </tr>
+  <tr>
+    <td>FISMrmse/FISMauc</td>
+    <td>Kabbur et al., FISM: Factored Item Similarity Models for Top-N Recommender Systems, KDD 2013.</td>
+    </tr>
+  <tr>
+    <td>GBPR</td>
+    <td>Pan and Chen, GBPR: Group Preference Based Bayesian Personalized Ranking for One-Class Collaborative Filtering, IJCAI 2013.</td>
+  </tr>
+  <tr>
+    <td>Hybrid</td>
+    <td>Zhou et al., Solving the Apparent Diversity-Accuracy Dilemma of Recommender Systems, NAS 2010.</td>
+  </tr>
+  <tr>
+    <td>LDA</td>
+    <td>Tom Griffiths, Gibbs sampling in the generative model of Latent Dirichlet Allocation, 2002.</td>
+  </tr>
+  <tr>
+    <td>LRMF</td>
+    <td>Shi et al., List-wise learning to rank with matrix factorization for collaborative filtering, RecSys 2010. </td>
+  </tr>
+  <tr>
+    <td>PRankD</td>
+    <td>Neil Hurley, Personalised ranking with diversity, RecSys 2013.</td>
+  </tr>
+  <tr>
+    <td>RankALS</td>
+    <td>Takacs and Tikk, Alternating Least Square for Personalized Ranking, RecSys 2012.</td>
+    </tr>
+  <tr>
+    <td>RankSGD</td>
+    <td>Jahrer and Toscher, Collaborative Filtering Ensemble for Ranking, JMLR, 2012 (KDD Cup 2011 Track 2).</td>
+  </tr>
+  <tr>
+    <td>SBPR</td>
+    <td>Zhao et al., Leveraing Social Connections to Improve Personalized Ranking for Collaborative Filtering, CIKM 2014</td>
+  </tr>
+  <tr>
+    <td>SLIM</td>
+    <td>Ning and Karypis, SLIM: Sparse Linear Methods for Top-N Recommender Systems, ICDM 2011.</td>
+  </tr>
+  <tr>
+    <td>WBPR</td>
+    <td>Gantner et al., Bayesian Personalized Ranking for Non-Uniformly Sampled Items, JMLR, 2012.</td>
+  </tr>
+  <tr>
+    <td>WRMF</td>
+    <td>Hu et al., Collaborative filtering for implicit feedback datasets, ICDM 2008. <br>
+      Pan et al., One-class Collaborative Filtering, ICDM 2008.
+    </td>
+    </tr>
+  </table>
+  
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Both Tasks</th>
+    <th scope="col">References</th>
+    </tr>
+  <tr>
+    <td>UserKNN</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>ItemKNN</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>BHfree</td>
+    <td>Barbieri et al., Balancing Prediction and Recommendation Accuracy: Hierarchical Latent Factors for Preference Data, SDM 2012.</td>
+  </tr>
+  <tr>
+    <td>BUCM</td>
+    <td>Barbieri et al., Modeling Item Selection and Relevance for Accurate 
+      Recommendations: a Bayesian Approach, RecSys 2011.</td>
+  </tr>
+  </table>
+  <div class="alert alert-success"><strong>Remark:</strong> Algorithms for rating prediction will rank items by predictions if setting <span class="code">item.ranking=on</span></div>
+</div>
+
+<hr class="small">
+
+<!-- How-to-Run -->
+<div id="run">
+<h2>How to Run LibRec</h2>
+
+<div class="panel panel-success">
+<div class="panel-heading text-bold">Compile Source Code with Eclipse</div>
+<ul class="list-group">
+<li class="list-group-item">1. Check out the source code with  <span class="code">git clone https://github.com/guoguibing/librec.git</span></li>
+<li class="list-group-item">2. Run Eclilpse, and select &quot;File &gt; Import &gt; General &gt; Existing Projects into Workspace&quot;. </li>
+<li class="list-group-item">3. Select &quot;Select root directory: &quot; and browse to the directory where your unzipped source code is stored. </li>
+<li class="list-group-item">4. Press &quot;Finish&quot;, and the project is imported. </li>
+</ul>
+</div>
+<div class="alert alert-warning"><strong>Warning!</strong> If compiling errors occur, put the jars under the folder <span class="code">lib</span> into the building path. Interesting readers may check the <a href="https://github.com/guoguibing/HappyCoding">source code</a> of <span class="code">happy.coding.utils.jar</span>. Since <span class="code">librec-v1.4</span>, this dependent jar pacakge has been merged into a <span class="code">librec.util</span> package to be self-inclusive. </div>
+<div class="alert alert-success"><strong>Remark:</strong> we do not recommend to compile source code from the command line as you have to take care of all the dependent libraries manually.
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading text-bold">Run LibRec with a Command Line</div>
+<ul class="list-group">
+<li class="list-group-item">1. Config a recommender by setting <strong>librec.conf</strong></li>
+<li class="list-group-item">2. Run the runnable .jar package (make sure the java version is 1.7 or higher)
+  <pre>> java -jar librec.jar</pre>
+  Since librec-v1.2, you can specify alternative configuration file: 
+  <pre>> java -jar librec.jar -c configFile1.conf [configFile2.conf ...]</pre>
+</li>
+</ul>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading text-bold">Output results: evaluation measurements followed by the recommender options and execution time. </div>
+  <ul class="list-group">
+    <li class="list-group-item">Rating prediction: MAE, RMSE, NMAE, rMAE, rRMSE, MPE</li>
+    <li class="list-group-item">Item recommendation: Precision@5, Precision@10, Recall@5, Recall@10, AUC, MAP, NDCG, MRR</li>
+   </ul>
+</div>
+
+<div class="panel panel-info">
+<div class="panel-heading text-bold">Run LibRec with Command Line Arguments</div>
+<pre> > java -jar librec.jar [arguments]</pre>
+<table class="table table-hover">
+  <tr>
+    <th width="24%" scope="col"> Argument</th>
+    <th width="12%" class="conf" scope="col">Example</th>
+    <th width="3%" class="conf" scope="col">Since</th>
+    <th width="61%" class="conf" scope="col">Description</th>
+  </tr>
+  <tr>
+    <td>-c confFile1 [configFile2 ...]</td>
+    <td>-c myConfig.conf</td>
+    <td>1.2</td>
+    <td>Set the alternative (multiple) configuration file(s); otherwise  default config file (&quot;librec.conf&quot;) will be used.</td>
+  </tr>
+  <tr>
+    <td>-v</td>
+    <td>-v</td>
+    <td>1.2</td>
+    <td>Print out the version number. </td>
+  </tr>
+  <tr>
+    <td>--version</td>
+    <td>--version</td>
+    <td>1.2</td>
+    <td>Print out the detailed version information: version number, copyright, LibRec discription.</td>
+  </tr>
+  <tr>
+    <td>--dataset-spec</td>
+    <td>--dataset-spec</td>
+    <td>1.2</td>
+    <td>Print out the detailed specifications of datasets specified by your config file including training/testing/social datasets. </td>
+  </tr>
+  <tr>
+    <td>--dataset-split -r ratio -target u, i, r --by-date</td>
+    <td><p>--dataset-split -r 0.8</p></td>
+    <td>1.3</td>
+    <td>Split the input data set (&quot;dataset.training&quot;) into: training, and test sub sets. These subsets are stored in the folder &quot;split&quot; under the  same directory of the input data set. </td>
+  </tr>
+  </table>
+</div>
+
+<div class="panel panel-primary">
+<div class="panel-heading text-bold">Step by Step</div>
+<ul class="list-group">
+<li class="list-group-item">1. Download the <a href="https://github.com/guoguibing/librec#download" class="code">latest release</a> zip file and unzip it to a local directory.</li>
+<li class="list-group-item">2. Run command or terminal and use &quot;cd&quot; to locate the library directory.</li>
+<li class="list-group-item">3. Run the LibRec library by: <span class="code">java -jar librec.jar</span></li>
+<li class="list-group-item">4. An example is illustrated in Figure 2 (with LibRec-1.3). 
+  The outputs (with orders) are: algorithm name, performance (MAE, RMSE, NMAE, rMAE, rRMSE, MPE), recommender options (learning rate, reg.user, reg.item, num.factors, num.max.iter, bold.driver), execution time (training time and testing time).</li>
+</ul>
+<div class="image2"><img width="95%" src="../../images/example-v1.3.png"><br>
+Figure 2. A LibRec example of running BiasedMF  on the FilmTrust dataset</div>
+</div>
+
+<div class="panel panel-primary">
+<div class="panel-heading text-bold">Code Snippet</div>
+<pre>
+public void main(String[] args) throws Exception {
+
+	// config logger
+	Logs.config("log4j.xml", true);
+
+	// config recommender
+	String configFile = "librec.conf";
+
+	// run algorithm
+	LibRec librec = new LibRec();
+	librec.setConfigFiles(configFile);
+	librec.execute(args);
+}
+</pre>
+</div>
+
+<div class="panel panel-primary">
+<div class="panel-heading text-bold">LibRec Demo</div>
+<ul class="list-group">
+<li class="list-group-item">The following demo is based on a pre-release version of LibRec-1.3. The demo content is included in the folder<span class="code">demo</span>.</li>
+</ul>
+<iframe style="padding:20px 0px; display:block; margin:0 auto;" width="800" height="450" src="https://www.youtube.com/embed/B0kfYNfCwwo" frameborder="0" allowfullscreen></iframe>
+</div>
+
+</div> <!-- how-to-run ends -->
+
+<hr class="small">
+
+<div id="config">
+<h2>Config Recommender: librec.conf</h2>
+<div class="panel panel-primary">
+  <div class="panel-heading text-bold">Essential Settings</div>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th width="12%" scope="col"> Entry</th>
+    <th width="16%" class="conf" scope="col">Example</th>
+    <th width="5%" class="conf" scope="col">Since</th>
+    <th width="67%" class="conf" scope="col">Description</th>
+  </tr>
+  <tr>
+    <td>dataset.ratings.wins<br>
+      dataset.ratings.lins</td>
+    <td>D:\\MovieLens\\100K.txt<br>
+      /home/user/ratings.txt</td>
+    <td>1.0</td>
+    <td>Set the path to input dataset: &quot;*.wins&quot; for Windows, and &quot;*.lins&quot; for Linux and Unix. It is convenient if you need to frequently switch among different platforms. If not, you can use &quot;dataset.ratings&quot; for short. Format: each row separated by empty, tab or comma symbol. </td>
+  </tr>
+  <tr>
+    <td>dataset.social.wins<br>
+      dataset.social.lins</td>
+    <td>D:\\Epinions\\trust.txt<br>
+      /home/user/trust.txt</td>
+    <td>1.0</td>
+    <td>Set the path to social dataset. Put &quot;-1&quot; to disable it. </td>
+  </tr>
+  <tr>
+    <td scope="row">ratings.setup</td>
+    <td>-columns 0 1 2 3 -threshold -1</td>
+    <td>1.3</td>
+    <td>-columns: (user, item, [rating, [timestamp]]) columns of rating data are used; -threshold: to convert rating values to binary ones<br>
+      --time-unit DAYS, HOURS, MICROSECONDS, MILLISECONDS, MINUTES, NANOSECONDS, [SECONDS]: time unit of timestamps<br>
+      --headline: to skip the first head line when reading data<br>
+      --as-tensor: to read all columns as a tensor</td>
+  </tr>
+  <tr>
+    <td scope="row">recommender</td>
+    <td>RegSVD/SVD++/PMF/etc.</td>
+    <td>1.0</td>
+    <td>Set the recommender to use. Available options include: <br>
+      Baselines: GlobalAvg, UserAvg, ItemAvg, UserCluster, ItemCluster, Random, Constant, MostPop; <br>
+      Extensions:  NMF, SlopeOne, Hybrid, PD, AR, PRankD, External;<br>
+      Algorithms: check out the advanced <a href="#algos" class="blue-link page-scroll">algorithms</a> implemented</td>
+  </tr>
+  <tr>
+    <td scope="row">evaluation.setup</td>
+    <td>      cv -k 5 -p on -v 0.1 -o on</td>
+    <td>1.3</td>
+    <td>Main option: test-set; cv; leave-one-out;  given-n;  given-ratio;<br>
+      test-set -f path/to/test/file;<br>
+      cv -k kfold (default 5); -p on (parallel execution, default), off (singleton, fold-by-fold); <br>
+      leave-one-out -t threads (number of threads, used only for target r) -target u, i, r (r by dafault) [--by-date]<br>
+      given-n -N number (default 20) -target u, i [--by-date]; 
+      given-ratio -r ratio (default 0.8) -target u, i, r [--by-date]<br>
+      -target u, i, r: 
+      preserve a ratio of ratings relative to users (u), items (i) or ratings (r); --by-date: sort ratings by timestamps<br>
+        Commonly optional settings include: <br>
+        -v ratio of validation data (derived from training data, default 0)<br>
+        -rand-seed N: 
+        set the random seed, if not set, system time will be used;<br>
+        --test-view all, cold-start, trust-degree min max (default all); 
+        <br>
+        --early-stop loss, RMSE, MAE, etc: set the criterion for early stop. Note that early-stop may not produce the best performance. </td>
+  </tr>
+  <tr>
+    <td scope="row">item.ranking</td>
+    <td>off -topN -1 -ignore -1</td>
+    <td><p>1.3</p></td>
+    <td>Main option: whether to do item ranking<br>
+      -topN: the length of the recommendation list for item recommendation, default -1 for full list; <br>
+      -ignore:  the number of the most popular items to ignore; -diverse: whether to use diversity measures</td>
+  </tr>
+  <tr>
+    <td scope="row">output.setup</td>
+    <td>on -dir ./Results/ -verbose on</td>
+    <td>1.3</td>
+    <td>Main option: whether to output recommendation results<br>
+      -dir path: the directory path of output results;<br>
+      -verbose on, off: whether to print out intermediate results;<br>
+      --save-model: whether to save recommendation model;<br>
+      --fold-data: whether to print out traing and test data;<br>
+      --measures-only: whether to print other information except measurements; <br>
+      --to-clipboard: copy results to clipboard, useful for a single run;<br>
+      --to-file filePath: collect results to a specific file, useful for multiple runs, especifially if not all at once. </td>
+  </tr>
+  <tr>
+    <td scope="row">guava.cache.spec</td>
+    <td>maximumSize=200</td>
+    <td>1.2</td>
+    <td>Set the Guava cache specificaiton, see <a href="http://docs.guava-libraries.googlecode.com/git/javadoc/com/google/common/cache/CacheBuilderSpec.html">more options</a></td>
+  </tr>
+  <tr>
+    <td scope="row">email.setup</td>
+    <td><p>on/off -host smtp.gmail.com<br>
+      -port 465 -user xxx@yy.com<br>
+      -password xxxx<br>
+      -auth true<br>
+      -to zzz@yy.com
+    </p></td>
+    <td>1.3</td>
+    <td>main option: if email notification is enabled; <br>
+      -host: the email server; -port: the port of the email server<br>
+      -user: the user name of your email account; <br>
+      -password: the password of your email account;<br>
+      -auth true/false: whether the email server requires authentification; <br>
+      -to:  the email address to which you want to send notification; </td>
+  </tr>
+  </table>
+  </div>
+  
+  <div class="panel panel-primary">
+  <div class="panel-heading text-bold">Model-based Settings</div>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <td scope="row">num.factors</td>
+    <td>5/10/20/number</td>
+    <td>1.0</td>
+    <td>Set the number of latent factors</td>
+  </tr>
+  <tr>
+    <td scope="row">num.max.iter</td>
+    <td>100/200/number</td>
+    <td>1.0</td>
+    <td>Set the maximum number of iterations for iterative recommendation algorithms. </td>
+  </tr>
+  <tr>
+    <td scope="row">learn.rate</td>
+    <td>0.01 -max -1 -bold-driver</td>
+    <td>1.3</td>
+    <td>Main option: initial learning rate for iterative recommendation algorithms; <br>
+      -max: maximum learning rate (default -1);  -moment value;<br>
+      -bold-driver: update by bold driver; -decay ratio: update by constantly decaying; </td>
+  </tr>
+  <tr>
+    <td scope="row">reg.lambda</td>
+    <td>0.1 -u 0.01 -i 0.01 -b 0.01 -s 0.01</td>
+    <td>1.3</td>
+    <td>main option: default value if specific parameter is not specified;<br>
+      -u: user regularizaiton; -i: item regularization; -b: bias regularizaiton; -s: social regularization</td>
+  </tr>
+  <tr>
+    <td scope="row">pgm.setup</td>
+    <td>-alpha 2 -beta 0.5 -burn-in 1400 <br>
+      -sample-lag 100 -interval 100</td>
+    <td>1.3</td>
+    <td>General setup for probabilistic graphic models:<br>
+      -alpha: the hyperparameter for user-topic distritubion; -beta: 
+      the hyperparameter of topic-item distribution;<br>
+      -burn-in: 
+      the number of iterations for the burn-in period; -sample-lag: the number of iterations for the sample lag<br>
+      -interval: 
+      the interval to print iterative progress if verbose is on</td>
+  </tr>  
+  </table>
+  </div>
+  
+  <div class="panel panel-primary">
+  <div class="panel-heading text-bold">Memory-based Settings</div>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <td scope="row">similarity</td>
+    <td>pcc/cos/msd</td>
+    <td>1.0</td>
+    <td>Set the similarity method to use. Options: PCC, COS, MSD, CPC, exJaccard;</td>
+  </tr>
+  <tr>
+    <td scope="row">num.shrinkage</td>
+    <td>25/number</td>
+    <td>1.0</td>
+    <td>Set the shrinkage parameter to devalue similarity value. -1: to disable simialrity shrinkage. </td>
+  </tr>
+  <tr>
+    <td scope="row">num.neighbors</td>
+    <td>60/number</td>
+    <td>1.0</td>
+    <td>Set the number of neighbors used for KNN-based algorithms such as UserKNN, ItemKNN. </td>
+  </tr>
+  </table>
+  </div>
+  
+  <div class="panel panel-success">
+  <div class="panel-heading text-bold">Method-Specific Settings</div>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <td scope="row">AoBPR</td>
+    <td>-lambda 0.3</td>
+    <td>1.3</td>
+    <td>lambda: the ratio of negative examples during sampling</td>
+  </tr>
+  <tr>
+    <td scope="row">BHfree</td>
+    <td>-k 30 -l 10 -gamma 0.2 -sigma 0.05</td>
+    <td>1.3</td>
+    <td>-k/l: number of user/item topics; -gamma/sigma: initial hyperparams for ratings and items.</td>
+  </tr>
+  <tr>
+    <td scope="row">BUCM</td>
+    <td>-gamma 0.5</td>
+    <td>1.3</td>
+    <td>gamma: the initial hyperparameter value for rating probability distributions</td>
+  </tr>
+  <tr>
+    <td scope="row">FISM</td>
+    <td>-rho 10 -alpha 0.5</td>
+    <td>1.3</td>
+    <td>rho: the ratio of sampling negative training examples relative to positive ones; <br>
+      alpha: the weight parameter to the number of items rated by a user.</td>
+  </tr>
+  <tr>
+    <td scope="row">GBPR</td>
+    <td>-rho 0.6 -gSize 5</td>
+    <td>1.3</td>
+    <td>rho:  the importance of group preference; gSize: the size of group users, usually 3/4 will be good.</td>
+  </tr>
+  <tr>
+    <td scope="row">GPLSA</td>
+    <td>-q 5 -b 0.4</td>
+    <td>1.3</td>
+    <td>q: the smoothing weight; -b: tempered EM scale parameter.</td>
+  </tr>
+  <tr>
+    <td scope="row">Hybrid</td>
+    <td>-lambda 0.5</td>
+    <td>1.3</td>
+    <td>lambda:  the parameter to combine both HeatS and ProbS.</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>-ku 20 -kv 10 -au 1 -av 1 -beta 1</td>
+    <td>1.3</td>
+    <td>-ku: number of user clusters; -kv: number of item clusters; -au/av/beta: Dirichlet hyperparam for users/items/ratings; </td>
+  </tr>
+  <tr>
+    <td scope="row">PD</td>
+    <td>-sigma 2.5</td>
+    <td>1.3</td>
+    <td>sigma:  the prior Gaussian standard deviation. </td>
+  </tr>
+  <tr>
+    <td scope="row">PRankD</td>
+    <td>-alpha 20</td>
+    <td>1.3</td>
+    <td>alpha:  the parameter to obtain a greater spread of diversity values.</td>
+  </tr>
+  <tr>
+    <td scope="row">RSTE</td>
+    <td>-alpha 0.4</td>
+    <td>1.3</td>
+    <td>alpha:  the importance of user-item (partial) prediction for the overall prediction.</td>
+  </tr>
+  <tr>
+    <td scope="row">RankALS</td>
+    <td>-sw on/off</td>
+    <td>1.3</td>
+    <td>sw: whether the supporting weight is enabled.</td>
+  </tr>
+  <tr>
+    <td scope="row">SLIM</td>
+    <td>-l1 1 -l2 5</td>
+    <td>1.3</td>
+    <td>l1/l2: set the l1/l2 regularizaiton parameter value.</td>
+  </tr>
+  <tr>
+    <td scope="row">SoRec</td>
+    <td>-c 1 -z 0.001</td>
+    <td>1.3</td>
+    <td>c: the importance of social regularization; z: the regularization parameter for social users.</td>
+  </tr>
+  <tr>
+    <td scope="row">SoReg</td>
+    <td> -beta 0.01</td>
+    <td>1.3</td>
+    <td>beta:  the importance of social regularization.</td>
+  </tr>
+  <tr>
+    <td scope="row">timeSVD++</td>
+    <td>-beta 0.04 -bins 30</td>
+    <td>1.3</td>
+    <td>beta: set the value of time decay factor; bins: the number of bins for all the items.</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF</td>
+    <td>-m Tr/Te/T</td>
+    <td>1.3</td>
+    <td>m: the specific model to use; Tr: TrusterMF; Te: TrusteeMF; T: TrustMF.</td>
+  </tr>
+  <tr>
+    <td scope="row">WRMF</td>
+    <td>-alpha 2.0</td>
+    <td>1.3</td>
+    <td>alpha: the parameter to convert from rating value to rating confidence.</td>
+  </tr>
+  </table>
+  </div>
+  
+  <div class="text-center"><a href="#deprecated" class="btn btn-border" data-toggle="collapse" aria-expanded="false">Deprecated Configuration Entries</a></div>
+  <div id="deprecated" class="collapse downloads">
+  <div class="panel panel-danger">
+  <div class="panel-heading text-bold">Deprecated Settings</div>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <td width="12%" scope="row">dataset.testing.wins<br>
+      dataset.testing.lins</td>
+    <td width="12%">test.txt</td>
+    <td width="9%">1.0-1.2</td>
+    <td width="67%">Set the path to testing dataset. Put &quot;-1&quot; to disable it. If specified, algorithm will be tested using this data file. Otherwise algorithm will be tested base on ratio or kfold cross-validation of training set. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.binary.threshold</td>
+    <td>-1/0/float</td>
+    <td>1.2-1.2</td>
+    <td>For item ranking/recommendation: set the threshold (must be non-negative) to convert real-valued ratings to binary ones (equal or greater than threshold, then value 1; otherwise value 0). Note that not all item ranking models require binary ratings. Put &quot;-1&quot; to disable it.</td>
+  </tr>
+  <tr>
+    <td scope="row">is.prediction.out</td>
+    <td>on/off</td>
+    <td>1.2-1.2</td>
+    <td>Set whether to output rating predictions to files (located under the folder &quot;Results&quot;)</td>
+  </tr>
+  <tr>
+    <td scope="row">rating.pred.view</td>
+    <td>all/cold-start</td>
+    <td>1.1-1.2</td>
+    <td>Set the testing view if rating prediction is used. Supported views: all/cold-start</td>
+  </tr>
+  <tr>
+    <td scope="row">is.cross.validation</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td> Set whether to enable cross validation for testing.</td>
+  </tr>
+  <tr>
+    <td scope="row">is.parallel.folds</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to run kfold cross validation parallely. Off: kfolds will be executed one thread after another, useful if memeory is a critical issue. </td>
+  </tr>
+  <tr>
+    <td scope="row">num.kfold</td>
+    <td>5/number</td>
+    <td>1.0-1.2</td>
+    <td>Set the number of folds to use.</td>
+  </tr>
+  <tr>
+    <td scope="row">val.ratio</td>
+    <td>0.8/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the ratio of  all data as the training set. If kfold is off, single ratio will be executed, useful for 0.8 training, 0.2 testing. (Note: for consistency's sake, since v1.1 onwards, the ratio means the training ratio while in v1.0 the ratio means the testing ratio)</td>
+  </tr>
+  <tr>
+    <td scope="row">num.given.n</td>
+    <td>5/10/number</td>
+    <td>1.1-1.2</td>
+    <td>Set the number of given ratings for each user that will be preserved as the training set, and the rest are used for testing if val.ratio&lt;0, a.k.a, Given N. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.given.ratio</td>
+    <td>0.8/float</td>
+    <td>1.1-1.2</td>
+    <td>Set the ratio of given ratings for each user that will be preserved as the training set, and the rest as the testing set if num.given.n&lt;0, i.e., Given Ratio.</td>
+  </tr>
+  <tr>
+    <td scope="row">val.reg.user</td>
+    <td>0.2/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the reguralization for users.</td>
+  </tr>
+  <tr>
+    <td scope="row">val.reg.item</td>
+    <td>0.2/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the regulralization for items. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.reg.bias</td>
+    <td>0.01/float</td>
+    <td>1.2-1.2</td>
+    <td>Set the regularization for user/item biases</td>
+  </tr>
+  <tr>
+    <td scope="row">val.reg.social</td>
+    <td>0.2/1/5/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the regularization for social information. It is useful for social recommenders. </td>
+  </tr>
+  <tr>
+    <td scope="row">is.bold.driver</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to use &quot;bold driver&quot; mode to udpate learning rate. On: increase 5% if loss value decreases; otherwise decreasing to 50%. </td>
+  </tr>
+  <tr>
+    <td scope="row">is.undo.change</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to undo last changes if bold driver is on and loss value increases. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.decay.rate</td>
+    <td>0.9/-1/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the ratio to decay the learning rate after each iteration. It is only used when bold driver is off. -1: to disable it and use constant learning rate. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.learn.rate</td>
+    <td>0.01/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the learning rate for iterative recommendation algorithms. -1: to disable it. </td>
+  </tr>
+  <tr>
+    <td scope="row">val.momentum</td>
+    <td>0.8/float</td>
+    <td>1.0-1.2</td>
+    <td>Set the momementum for iterative recommendation algorithms. Current it is only used in PMF method. </td>
+  </tr>
+  <tr>
+    <td scope="row">max.learn.rate</td>
+    <td>0.05/float</td>
+    <td>1.1-1.2</td>
+    <td>Set the maximum learning rate if learning rate is updatable. -1: to disable it.</td>
+  </tr>
+  <tr>
+    <td scope="row">is.ranking.pred</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to do item recommendation, i.e., item ranking; Off: do rating prediction instead. </td>
+  </tr>
+  <tr>
+    <td scope="row">is.diverse.used</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether diversity measures are used for item recommendation.</td>
+  </tr>
+  <tr>
+    <td scope="row">num.reclist.len</td>
+    <td>number/-1</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to use diversity measures</td>
+  </tr>
+  <tr>
+    <td scope="row">num.ignore.items</td>
+    <td>-1/number</td>
+    <td>1.0-1.2</td>
+    <td>Set   the number of the most popular items ignored for item recommendation. </td>
+  </tr><tr>
+    <td scope="row">is.email.notify</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to send an email to notify you if your execution is finished. </td>
+  </tr>
+  <tr>
+    <td scope="row">mail.smtp.host</td>
+    <td>smtp.gmail.com</td>
+    <td>1.2-1.2</td>
+    <td>Set the email server. </td>
+  </tr>
+  <tr>
+    <td scope="row">mail.smtp.port</td>
+    <td>465</td>
+    <td>1.2-1.2</td>
+    <td>Set the port of the email server.</td>
+  </tr>
+  <tr>
+    <td scope="row">mail.smtp.auth</td>
+    <td>true/false</td>
+    <td>1.2-1.2</td>
+    <td>Whether the email server requires authentification. </td>
+  </tr>
+  <tr>
+    <td scope="row">mail.smtp.user</td>
+    <td>user name</td>
+    <td>1.2-1.2</td>
+    <td>Set the user name of your email account.</td>
+  </tr>
+  <tr>
+    <td scope="row">mail.smtp.password</td>
+    <td>password</td>
+    <td>1.2-1.2</td>
+    <td>Set the password of your email account.</td>
+  </tr>
+  <tr>
+    <td scope="row">mail.to</td>
+    <td>user@gmail.com</td>
+    <td>1.2-1.2</td>
+    <td>Set the email address that you want to send notification to. It replaced the prviouse item &quot;notify.email.to&quot;. </td>
+  </tr>
+  <tr>
+    <td scope="row">is.verbose</td>
+    <td>on/off</td>
+    <td>1.0-1.2</td>
+    <td>Set whether to print out detailed debug information.</td>
+  </tr>
+  <tr>
+    <td scope="row">num.rand.seed</td>
+    <td>1/-1/integers</td>
+    <td>1.0-1.2</td>
+    <td>Set the seed of random. -1: use current system time to initial the random generator. </td>
+  </tr>
+  </table>
+  </div>
+  </div>
+</div>
+<hr class="small">
+
+<!-- Development --> 
+<div id="develop">
+  <h2>Development</h2>
+  
+  <div class="panel panel-info">
+  <div class="panel-heading text-bold">Defining New Items in librec.conf</div>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th width="25%" scope="col"> Type</th>
+    <th width="39%" class="conf" scope="col">Naming</th>
+    <th width="36%" class="conf" scope="col">Example</th>
+  </tr>
+  <tr>
+    <td>String</td>
+    <td>[var.name]</td>
+    <td>dataset=epinions</td>
+  </tr>
+  <tr>
+    <td>Boolean (on/off)</td>
+    <td>is.[var.name]</td>
+    <td>is.verbose=on/off</td>
+  </tr>
+  <tr>
+    <td scope="row">Integer/Number</td>
+    <td>num.[var.name]</td>
+    <td>num.kfold=5</td>
+  </tr>
+  <tr>
+    <td scope="row">Real float</td>
+    <td>val.[var.name]</td>
+    <td>val.ratio=0.2</td>
+  </tr>
+  <tr>
+    <td scope="row">Maximum (Minimum) value</td>
+    <td>max.[var.name]<br>
+      min.[var.name]</td>
+    <td>max.ratio=1.0<br>
+      min.ratio=0.1</td>
+  </tr>
+  <tr>
+    <td scope="row">Range/Set (multiple values)</td>
+    <td>val.[var.name]</td>
+    <td>      val.reg=0.5,0.6,0.7,0.8 works the same as val.reg=0.5..0.1..0.8<br>
+      val.reg=0.0001,0.001,0.01,0.1,1 can be shortened as val.reg=0.0001**10**1</td>
+  </tr>
+  <tr>
+    <td scope="row">IO path<br>Note: use [var.name] as key in your program</td>
+    <td><p>[var.name] in general, for simplicity<br>
+      [var.name].wins  for windows; 
+      [var.name].lins for linux/mac</p></td>
+    <td><p>ratings=D:\\ratings.txt<br>
+      ratings.wins=D:\\ratings.txt; 
+        ratings.lins=/home/user/ratings.txt<br>
+      </p></td>
+  </tr>
+  <tr>
+    <td colspan="3" scope="row">Remark: Class Configer is used to read desired variable values. </td>
+    </tr>
+  </table>
+  </div>
+  
+  <div class="panel panel-primary">
+  <div class="panel-heading text-bold">Implementing a New Algorithm</div>
+  <ul class="list-group">
+    <li class="list-group-item">1. Creating a new class by extending a proper <a href="#interface">interface</a>. </li>
+    <li class="list-group-item">2. Initialize your model by overriding the method <span class="code">initModel()</span>, if necessary.</li>
+    <li class="list-group-item">3. Building your model by overriding the method <span class="code">buildModel()</span>, if necessary. </li>
+    <li class="list-group-item">4. Evaluate your model  by overriding the method <span class="code">predict(int u, int j, boolean bounded)</span> (for rating prediction) or <span class="code">ranking(int u, int j)</span> (for item recommendation), if necessary. </li>
+    <li class="list-group-item">5. Register your recommender  in the method <span class="code">getRecommender(SparseMatrix[] data, int fold)</span> of the main class <span class="code">LibRec.java</span>. </li>
+  </ul>
+  </div>
+  
+  </div>
+</div>
+  
+  </div><!-- main content ends-->
+</body>
+</html>
