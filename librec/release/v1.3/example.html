@@ -1,0 +1,2365 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>LibRec - Examples &amp; Comparison with Other Recommendation Libraries</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+        <!-- Bootstrap -->
+        <link href="../../css/bootstrap.min.css" rel="stylesheet">
+        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    	<script src="../../js/jquery-1.11.2.min.js"></script>
+   		<!-- Include all compiled plugins (below), or include individual files as needed -->
+	    <script src="../../js/bootstrap.min.js"></script>
+    
+    	<!-- plugins -->
+		<link rel="stylesheet" type="text/css" href="../../css/table.css" />
+		<link rel="shortcut icon" href="../../images/network.ico" />
+                
+        <!-- mine -->
+        <link href="../../css/adds.css" rel="stylesheet">
+        <script type="text/javascript" src="../../js/mine.js"></script>        
+    </head>
+
+<body id="home" data-spy="scroll" data-target="#myNav" data-offset="55">
+
+<nav id="myNav"class="navbar navbar-default navbar-fixed-top">
+  <div class="container">
+    <!-- Brand and toggle get grouped for better mobile display -->
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand page-scroll" href="./index.html">LibRec</a>
+    </div>
+  </div><!-- /.container-fluid -->
+</nav>
+
+<div class="container">
+
+<div class="title">
+<h1 class="text-center">LibRec Examples on Real Data Sets</h1>
+<h3 class="text-center text-muted">&amp; comparison with other recommendation libraries</h3>
+</div>
+
+<div class="panel panel-primary">
+<div class="panel-heading text-bold">Quick Jump</div>
+<ul class="list-group">
+<li class="list-group-item"><span class="text-bold">Rating Prediction: </span>
+<a class="page-scroll" href="#ml1m">MovieLens 1M</a>, 
+<a class="page-scroll" href="#ml100k">100K</a>, 
+<a class="page-scroll" href="#epinions">Epinions</a>, 
+<a class="page-scroll" href="#filmtrust">FilmTrust</a>, 
+<a class="page-scroll" href="#ciao">Ciao</a>, 
+<a class="page-scroll" href="#flixster">Flixster</a>; </li>
+<li class="list-group-item"><span class="text-bold">Item Ranking: </span> 
+<a class="page-scroll" href="#item-ml-100k">MovieLens 100K</a>, 
+<a class="page-scroll" href="#item-epinions">Epinions</a>, 
+<a class="page-scroll" href="#item-flixster">Flixster</a>, 
+<a class="page-scroll" href="#item-filmtrust">FilmTrust</a>,
+<a class="page-scroll" href="#item-ciao">Ciao</a>;
+</li>
+</ul>
+</div>
+
+<div class="panel panel-default">
+<div class="panel-heading text-bold">Remarks</div>
+<div class="panel-body">
+<ol>
+<li>Comparative recommendation packages include <a href="http://www.mymedialite.net/index.html" target="_blank">MyMediaLite</a> (v3.10, C#, MMLite for short) and <a href="http://prea.gatech.edu/index.html" target="_blank">PREA</a> (v1.2, Java). </li>
+<li>General settings:<strong> </strong>rand.seed=1, evaluation.setup=cv -k 5 -p on --test-view all -bold-driver.</li>
+<li>The reported results may not represent the best performance an algorithm can achieve, <br>
+  while results with * symbol indicate the closeness to those reported by the reference paper.
+<li>The reported results may not be updated when a new version of LibRec has been released.
+<li>Generally, LibRec runs much <strong>faster</strong> than the others while achieving competitive performance. </li>
+</ol>
+</div>
+</div>
+<hr class="small">
+
+<div id="ml1m">
+<h1 class="text-center">Rating Prediction</h1>
+<h2>MovieLens (1M)</h2>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th rowspan="2" scope="col"><p>Algorithm</p>
+      <p>&nbsp;</p></th>
+    <th colspan="3" scope="col" class="text-center">MAE</th>
+    <th colspan="3" scope="col" class="text-center">RMSE</th>
+    <th colspan="3" scope="col" class="text-center">Train Time (s)</th>
+    <th colspan="3" scope="col" class="text-center">Test Time (s)</th>
+    </tr>
+  <tr>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+  </tr>
+  <tr>
+    <td>GlobalAvg</td>
+    <td>0.934</td>
+    <td>0.934</td>
+    <td>0.934</td>
+    <td>1.117</td>
+    <td>1.118</td>
+    <td>1.117</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:03</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td>UserAvg</td>
+    <td>0.829</td>
+    <td>0.828</td>
+    <td>0.829</td>
+    <td>1.035</td>
+    <td>1.035</td>
+    <td>1.036</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:03</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td scope="row">ItemAvg</td>
+    <td>0.782</td>
+    <td>0.782</td>
+    <td>0.782</td>
+    <td>0.979</td>
+    <td>0.979</td>
+    <td>0.980</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:03</td>
+    <td>00:02</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">UserKNN</td>
+    <td>0.683</td>
+    <td>0.696</td>
+    <td>0.703</td>
+    <td>N/A</td>
+    <td>0.893</td>
+    <td>0.905</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    <td>06:34</td>
+    <td>N/A</td>
+    <td>(20:53)x5</td>
+    <td>19:18 </td>
+    </tr>
+  <tr>
+    <td colspan="12">neighbors=80, similarity=pcc, shrinkage=25 (PREA inapplicable);
+      MMLite: throws an out of memory (OOM) exception</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">ItemKNN</td>
+    <td>0.681</td>
+    <td>0.677</td>
+    <td>0.688</td>
+    <td>0.869</td>
+    <td>0.863</td>
+    <td>0.876</td>
+    <td>01:22</td>
+    <td>00:00</td>
+    <td>02:15</td>
+    <td>01:18:04</td>
+    <td>(02:40:03)x5</td>
+    <td>05:10</td>
+    </tr>
+  <tr>
+    <td colspan="12">neighbors=80, similarity=pcc, shrinkage=10 (PREA inapplicable); 
+      MMLite: reg_u=25, reg_i=10</td>
+    </tr>
+  <tr>
+    <td scope="row">SlopeOne</td>
+    <td>0.711</td>
+    <td>0.711</td>
+    <td>0.711</td>
+    <td>0.901</td>
+    <td>0.901</td>
+    <td>0.901</td>
+    <td>05:29</td>
+    <td>(00:30)x5</td>
+    <td>00:14</td>
+    <td>01:30</td>
+    <td>(00:15)x5</td>
+    <td>00:10</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">RegSVD</td>
+    <td>0.674</td>
+    <td>0.675</td>
+    <td>0.671</td>
+    <td>0.857</td>
+    <td>0.855</td>
+    <td>0.852</td>
+    <td>00:58</td>
+    <td>(02:33)x5</td>
+    <td>00:04</td>
+    <td>00:00</td>
+    <td>(00:03)x5</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10,  reg=0.05, learn.rate=0.005, max.iter=75</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">PMF</td>
+    <td>N/A</td>
+    <td>0.762</td>
+    <td>0.747</td>
+    <td>N/A</td>
+    <td>0.943</td>
+    <td>0.926</td>
+    <td>N/A</td>
+    <td>(13:42)x5</td>
+    <td>00:13</td>
+    <td>N/A</td>
+    <td>(00:03)x5</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10, reg=0.4, learn.rate=50, momentum=0.8, max.iter=200</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">NMF</td>
+    <td>N/A</td>
+    <td>0.733</td>
+    <td>0.727</td>
+    <td>N/A</td>
+    <td>0.927</td>
+    <td>0.920</td>
+    <td>N/A</td>
+    <td>(02:42)x5</td>
+    <td>01:08</td>
+    <td>N/A</td>
+    <td>(00:04)x5</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=100,  max.iter=5</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BPMF</td>
+    <td>N/A</td>
+    <td>0.708</td>
+    <td>0.707</td>
+    <td>N/A</td>
+    <td>0.899</td>
+    <td>0.899</td>
+    <td>N/A</td>
+    <td>(00:14)x5</td>
+    <td>02:02</td>
+    <td>N/A</td>
+    <td>(00:03)x5</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=2, max.iter=20; 
+      PREA only uses 1 iter for Gibbs where LibRec uses 2 iters per epoch</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BPMF</td>
+    <td>N/A</td>
+    <td>0.704</td>
+    <td>0.695</td>
+    <td>N/A</td>
+    <td>0.903</td>
+    <td>0.896</td>
+    <td>N/A</td>
+    <td>(16:55)x5</td>
+    <td>07:56</td>
+    <td>N/A</td>
+    <td>(00:04)x5</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=20, max.iter=50; 
+      PREA uses sparse matrix/vector while LibRec uses dense versions</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.676</td>
+    <td>N/A</td>
+    <td>0.671</td>
+    <td>0.854</td>
+    <td>N/A</td>
+    <td>0.854</td>
+    <td>04:50</td>
+    <td>N/A</td>
+    <td>00:17</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=40, reg=0.06, learn.rate=0.07, max.iter=110; 
+      MMLite: biag_reg=0.001, bold_driver=true</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.676</td>
+    <td>N/A</td>
+    <td>0.671</td>
+    <td>0.854</td>
+    <td>N/A</td>
+    <td>0.854</td>
+    <td>05:41</td>
+    <td>N/A</td>
+    <td>00:27</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=60, reg=0.06, learn.rate=0.07, max.iter=100; 
+      MMLite: biag_reg=0.001, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.676</td>
+    <td>N/A</td>
+    <td>0.671</td>
+    <td>0.853</td>
+    <td>N/A</td>
+    <td>0.853</td>
+    <td>07:08</td>
+    <td>N/A</td>
+    <td>00:35</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=80, reg=0.06, learn.rate=0.07, max.iter=100;      MMLite: biag_reg=0.001, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.675</td>
+    <td>N/A</td>
+    <td>0.670</td>
+    <td>0.853</td>
+    <td>N/A</td>
+    <td>0.852</td>
+    <td>10:05</td>
+    <td>N/A</td>
+    <td>00:52</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=120, reg=0.06, learn.rate=0.07, max.iter=100; 
+      MMLite: biag_reg=0.001, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SVD++</td>
+    <td>0.667</td>
+    <td>N/A</td>
+    <td>0.668</td>
+    <td>0.851</td>
+    <td>N/A</td>
+    <td>0.851</td>
+    <td>02:11:18</td>
+    <td>N/A</td>
+    <td>01:52:35</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:05</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10, reg=0.05, learn.rate=0.005, max.iter=80</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SVD++</td>
+    <td>0.668</td>
+    <td>N/A</td>
+    <td>0.668</td>
+    <td>0.853</td>
+    <td>N/A</td>
+    <td>0.852</td>
+    <td>04:23:45</td>
+    <td>N/A</td>
+    <td>02:45:03</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:06</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=20, reg=0.05, learn.rate=0.005, max.iter=80</td>
+    </tr>
+  </table>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">MAE</th>
+    <th scope="col">RMSE</th>
+    <th scope="col">Train</th>
+    <th scope="col">Test</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td scope="row">URP</td>
+    <td>0.706</td>
+    <td><strong>0.892*</strong></td>
+    <td>04:40</td>
+    <td>00:00</td>
+    <td>factors=9, burn.in=300, max.iter=500, sample.lag=10, alpha=2, beta=0.5</td>
+  </tr>
+  <tr>
+    <td scope="row">GPLSA</td>
+    <td>0.723</td>
+    <td><strong>0.921*</strong></td>
+    <td>12:02</td>
+    <td>00:00</td>
+    <td>factors=10, burn.in=30, max.iter=100, sample.lag=10, q=10</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>0.721</td>
+    <td>0.909</td>
+    <td>54:08</td>
+    <td>00:00</td>
+    <td>ku=kv=5, burn.in=1000, max.iter=2000</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>0.718</td>
+    <td><strong>0.903*</strong></td>
+    <td>54:43</td>
+    <td>00:00</td>
+    <td>ku=kv=5, burn.in=1000, max.iter=2000 (evaluation=train-ratio -r 0.99)</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="ml100k">
+  <h2>MovieLens (100K)</h2>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th rowspan="2" scope="col" class="text-center">Algorithm</th>
+    <th colspan="3" scope="col" class="text-center">MAE</th>
+    <th colspan="3" scope="col" class="text-center">RMSE</th>
+    <th colspan="3" scope="col" class="text-center">Train Time (s)</th>
+    <th colspan="3" scope="col" class="text-center">Test Time (s)</th>
+    </tr>
+  <tr>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+  </tr>
+  <tr>
+    <td>GlobalAvg</td>
+    <td>0.945</td>
+    <td>0.949</td>
+    <td>0.945</td>
+    <td>1.126</td>
+    <td>1.128</td>
+    <td>1.126</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td>UserAvg</td>
+    <td>0.835</td>
+    <td>0.838</td>
+    <td>0.835</td>
+    <td>1.041</td>
+    <td>1.043</td>
+    <td>1.042</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td scope="row">ItemAvg</td>
+    <td>0.817</td>
+    <td>0.823</td>
+    <td>0.817</td>
+    <td>1.024</td>
+    <td>1.030</td>
+    <td>1.025</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">PD</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>0.794</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>1.094</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>N/A</td>
+    <td>14:26</td>
+    </tr>
+  <tr>
+    <td colspan="12">sigma=2.5</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">UserKNN</td>
+    <td>0.721</td>
+    <td>0.732</td>
+    <td>0.737</td>
+    <td>0.921</td>
+    <td>0.937</td>
+    <td>0.944</td>
+    <td>00:02</td>
+    <td>00:00</td>
+    <td>00:05</td>
+    <td>01:38</td>
+    <td>(00:20)x5</td>
+    <td>00:03</td>
+    </tr>
+  <tr>
+    <td colspan="12">neighbors=60, shrinkage=25, similarity=pcc; 
+      MMLite: reg_u=12, reg_i=1</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">ItemKNN</td>
+    <td>0.703</td>
+    <td>0.716</td>
+    <td>0.723</td>
+    <td>0.899</td>
+    <td>0.914</td>
+    <td>0.924</td>
+    <td>00:03</td>
+    <td>00:00</td>
+    <td>00:05</td>
+    <td>02:00</td>
+    <td>(01:47)x5</td>
+    <td>00:06</td>
+    </tr>
+  <tr>
+    <td colspan="12">neighbors=40, shrinkage=2500, similarity=pcc; 
+      MMLite: reg_u=12, reg_i=1</td>
+    </tr>
+  <tr>
+    <td scope="row">SlopeOne</td>
+    <td>0.739</td>
+    <td>0.740</td>
+    <td>0.739</td>
+    <td>0.939</td>
+    <td>0.940</td>
+    <td>0.940</td>
+    <td>00:15</td>
+    <td>(00:01)x5</td>
+    <td>00:00</td>
+    <td>00:03</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">RegSVD</td>
+    <td>0.741</td>
+    <td>0.730</td>
+    <td>0.730</td>
+    <td>0.949</td>
+    <td>0.932</td>
+    <td>0.936</td>
+    <td>00:07</td>
+    <td>(00:16)x5</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10,  reg=0.05, learn.rate=0.005, max.iter=100</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.724</td>
+    <td>N/A</td>
+    <td>0.722</td>
+    <td>0.918</td>
+    <td>N/A</td>
+    <td>0.918</td>
+    <td>00:06</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=5, reg=0.1, learn.rate=0.07, max.iter=100; 
+      MMLite: bias_reg=0.1, reg_u=reg_i=0.1, bold_driver=true</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.724</td>
+    <td>N/A</td>
+    <td>0.721</td>
+    <td>0.917</td>
+    <td>N/A</td>
+    <td>0.916</td>
+    <td>00:09</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10, reg=0.1, learn.rate=0.07, max.iter=100; 
+      MMLite: bias_reg=0.1, reg_u=0.1, reg_i=0.12, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.720</td>
+    <td>N/A</td>
+    <td>0.718</td>
+    <td>0.911</td>
+    <td>N/A</td>
+    <td>0.911</td>
+    <td>00:40</td>
+    <td>N/A</td>
+    <td>00:06</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=80, reg=0.1, learn.rate=0.07, max.iter=100; 
+      MMLite: bias_reg=0.003, reg_u=0.09, reg_i=0.1, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.720</td>
+    <td>N/A</td>
+    <td>0.719</td>
+    <td>0.911</td>
+    <td>N/A</td>
+    <td>0.911</td>
+    <td>00:58</td>
+    <td>N/A</td>
+    <td>00:09</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=120, reg=0.1, learn.rate=0.07, max.iter=100; 
+      MMLite: bias_reg=0.003, reg_u=0.09, reg_i=0.1, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.720</td>
+    <td>N/A</td>
+    <td>0.720</td>
+    <td>0.910</td>
+    <td>N/A</td>
+    <td>0.911</td>
+    <td>01:17</td>
+    <td>N/A</td>
+    <td>00:20</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=160, reg=0.1, learn.rate=0.07, max.iter=100; 
+      MMLite: bias_reg=0.003, reg_u=0.08, reg_i=0.1, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.720</td>
+    <td>N/A</td>
+    <td>0.720</td>
+    <td>0.911</td>
+    <td>N/A</td>
+    <td>0.911</td>
+    <td>12:23</td>
+    <td>N/A</td>
+    <td>01:05</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=320, reg=0.1, learn.rate=0.07, max.iter=500; 
+      MMLite: bias_reg=0.007, reg_u=reg_i=0.1, bold_driver=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SVD++</td>
+    <td>0.713</td>
+    <td>N/A</td>
+    <td>0.719</td>
+    <td>0.908</td>
+    <td>N/A</td>
+    <td>0.912</td>
+    <td>04:23</td>
+    <td>N/A</td>
+    <td>03:40</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=5, reg=0.1, learn.rate=0.01, max.iter=100; 
+      MMLite: bias_learn_rate=0.07, reg=1, bias_reg=0.05, fre_reg=true</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SVD++</td>
+    <td>0.713</td>
+    <td>N/A</td>
+    <td>0.718</td>
+    <td>0.909</td>
+    <td>N/A</td>
+    <td>0.912</td>
+    <td>08:26</td>
+    <td>N/A</td>
+    <td>04:33</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10, reg=0.1, learn.rate=0.01, max.iter=100; 
+      MMLite: bias_learn_rate=0.07, reg=1, bias_reg=0.005, fre_reg=true </td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SVD++</td>
+    <td>0.716</td>
+    <td>N/A</td>
+    <td>0.718</td>
+    <td>0.912</td>
+    <td>N/A</td>
+    <td>0.911</td>
+    <td>16:46</td>
+    <td>N/A</td>
+    <td>06:33</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=20, reg=0.1, learn.rate=0.01, max.iter=100; 
+      MMLite: bias_learn_rate=0.07, reg=1, bias_reg=0.005, fre_reg=true </td>
+    </tr>
+  </table>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">MAE</th>
+    <th scope="col">RMSE</th>
+    <th scope="col">Train</th>
+    <th scope="col">Test</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td scope="row">UserCluster</td>
+    <td>0.945</td>
+    <td>1.126</td>
+    <td>00:01</td>
+    <td>00:00</td>
+    <td>factors=1, max.iter=5 (When factors=1, it is equivalent as GlobalAvg and ItemCluster)</td>
+  </tr>
+  <tr>
+    <td scope="row">UserCluster</td>
+    <td>0.839</td>
+    <td>1.048</td>
+    <td>03:05</td>
+    <td>00:00</td>
+    <td>factors=10, max.iter=30</td>
+  </tr>
+  <tr>
+    <td scope="row">ItemCluster</td>
+    <td>0.820</td>
+    <td>1.023</td>
+    <td>02:09</td>
+    <td>00:00</td>
+    <td>factors=10, max.iter=30</td>
+  </tr>
+  <tr>
+    <td scope="row">URP</td>
+    <td>0.805</td>
+    <td>0.998</td>
+    <td>01:35</td>
+    <td>00:00</td>
+    <td>factors=10, burn.in=1400, max.iter=2000, sample.lag=10, alpha=2, beta=0.5</td>
+  </tr>
+  <tr>
+    <td scope="row">URP</td>
+    <td>0.792</td>
+    <td>0.984</td>
+    <td>02:02</td>
+    <td>00:00</td>
+    <td>factors=10, burn.in=1400, max.iter=2000, sample.lag=10, alpha=1, beta=0.5</td>
+  </tr>
+  <tr>
+    <td scope="row">BUCM</td>
+    <td>0.870</td>
+    <td>1.056</td>
+    <td>03:07</td>
+    <td>00:00</td>
+    <td>factors=30, burn.in=1400, max.iter=2000, sample.lag=10, alpha=2, beta=0.5, gamma=0.5</td>
+  </tr>
+  <tr>
+    <td scope="row">BUCM</td>
+    <td>0.847</td>
+    <td>1.038</td>
+    <td>02:55</td>
+    <td>00:00</td>
+    <td>factors=30, burn.in=1400, max.iter=2000, sample.lag=10, alpha=1, beta=0.5, gamma=0.5</td>
+  </tr>
+  <tr>
+    <td scope="row">GPLSA</td>
+    <td>0.792</td>
+    <td>1.012</td>
+    <td>00:44</td>
+    <td>00:00</td>
+    <td>factors=10, burn.in=30, max.iter=100, sample.lag=10, q=5, validation=0.1</td>
+  </tr>
+  <tr>
+    <td scope="row">GPLSA</td>
+    <td>0.807</td>
+    <td>1.030</td>
+    <td>01:39</td>
+    <td>00:00</td>
+    <td>factors=20, burn.in=30, max.iter=100, sample.lag=10, q=5, validation=0.1</td>
+  </tr>
+  <tr>
+    <td scope="row">GPLSA</td>
+    <td>0.789</td>
+    <td>1.008</td>
+    <td>00:44</td>
+    <td>00:00</td>
+    <td>factors=10, burn.in=30, max.iter=100, sample.lag=10, q=10, validation=0.1</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>0.735</td>
+    <td>0.928</td>
+    <td>59:16</td>
+    <td>00:00</td>
+    <td>ku=20, kv=19, burn.in=2000, max.iter=5000, sample.lag=500 (<strong>perplexity = 3.290148*</strong>)</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>0.743</td>
+    <td>0.937</td>
+    <td>32:58</td>
+    <td>00:00</td>
+    <td>ku=10, kv=20, burn.in=2000, max.iter=5000, sample.lag=500 (perplexity = 3.308719)</td>
+  </tr>
+  <tr>
+    <td scope="row">LDCC</td>
+    <td>0.736</td>
+    <td>0.929</td>
+    <td>39:33</td>
+    <td>00:00</td>
+    <td>ku=20, kv=10, burn.in=2000, max.iter=5000, sample.lag=500 (perplexity = 3.285468)</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="epinions">
+<h2>Epinions (665K)</h2>
+<table class="table table-hover table-bordered">
+  <tr>
+    <th rowspan="2" scope="col" class="text-center">Algorithm</th>
+    <th colspan="3" scope="col" class="text-center">MAE</th>
+    <th colspan="3" scope="col" class="text-center">RMSE</th>
+    <th colspan="3" scope="col" class="text-center">Train Time (s)</th>
+    <th colspan="3" scope="col" class="text-center">Test Time (s)</th>
+    </tr>
+  <tr>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>PREA</th>
+    <th>LibRec</th>
+  </tr>
+  <tr>
+    <td>GlobalAvg</td>
+    <td>0.918</td>
+    <td>0.918</td>
+    <td>0.918</td>
+    <td>1.207</td>
+    <td>1.207</td>
+    <td>1.207</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td>UserAvg</td>
+    <td>0.928</td>
+    <td>0.937</td>
+    <td>0.930</td>
+    <td>1.199  </td>
+    <td>1.209</td>
+    <td>1.203</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:01</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td scope="row">ItemAvg</td>
+    <td>0.825</td>
+    <td>0.898</td>
+    <td>0.825</td>
+    <td>1.094</td>
+    <td>1.163</td>
+    <td>1.094</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>00:01</td>
+    <td>01:04</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">BiasedMF</td>
+    <td>0.814</td>
+    <td>N/A</td>
+    <td>0.817</td>
+    <td>1.048</td>
+    <td>N/A</td>
+    <td>1.056</td>
+    <td>00:28</td>
+    <td>N/A</td>
+    <td>00:02</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=5, reg=0.35, learn.rate=0.01, max.iter=30; 
+      MMLite: reg=3.5, bias_reg=0.01</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SocialMF</td>
+    <td>0.897</td>
+    <td>N/A</td>
+    <td>0.825</td>
+    <td>1.239</td>
+    <td>N/A</td>
+    <td>1.070</td>
+    <td>19:40</td>
+    <td>N/A</td>
+    <td>52:18</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=5, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200; 
+      MMLite: learn_rate=0.01 (as 0.05 cannot train)</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SocialMF</td>
+    <td>NaN</td>
+    <td>N/A</td>
+    <td>0.825</td>
+    <td>NaN</td>
+    <td>N/A</td>
+    <td>1.062</td>
+    <td>NaN</td>
+    <td>N/A</td>
+    <td>52:39</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=5, reg=0.001, reg.social=5, learn.rate=0.05, max.iter=200</td>
+    </tr>
+  <tr>
+    <td rowspan="2" scope="row">SocialMF</td>
+    <td>0.903</td>
+    <td>N/A</td>
+    <td>0.826</td>
+    <td>1.243</td>
+    <td>N/A</td>
+    <td>1.082</td>
+    <td>31:52</td>
+    <td>N/A</td>
+    <td>01:13:22</td>
+    <td>00:00</td>
+    <td>N/A</td>
+    <td>00:00</td>
+    </tr>
+  <tr>
+    <td colspan="12">factors=10, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200; 
+      MMLite: learn_rate=0.01, others as default</td>
+    </tr>
+  </table>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">MAE</th>
+    <th scope="col">RMSE</th>
+    <th scope="col">Train</th>
+    <th scope="col">Test</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td scope="row">PMF</td>
+    <td>0.979</td>
+    <td>1.290</td>
+    <td>&nbsp;</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.01, learn.rate=60, moment=0.8, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">PMF</td>
+    <td>0.909</td>
+    <td>1.197</td>
+    <td>&nbsp;</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.01, learn.rate=60, moment=0.8, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">SoRec</td>
+    <td>0.880</td>
+    <td>1.110</td>
+    <td>01:02</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.c=1, learn.rate=0.001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">SoRec</td>
+    <td>0.886</td>
+    <td>1.144</td>
+    <td>01:39</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.c=1, learn.rate=0.001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">SoReg</td>
+    <td>0.994</td>
+    <td>1.315</td>
+    <td>08:36</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, beta=0.1, learn.rate=0.001, max.learn.rate=0.001, max.iter=600</td>
+  </tr>
+  <tr>
+    <td scope="row">SoReg</td>
+    <td>0.932</td>
+    <td>1.232</td>
+    <td>08:58</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, beta=0.1, learn.rate=0.001, max.learn.rate=0.001, max.iter=600</td>
+  </tr>
+  <tr>
+    <td scope="row">RSTE</td>
+    <td>0.950</td>
+    <td>1.196</td>
+    <td>06:22:56</td>
+    <td>&nbsp;</td>
+    <td>factors=5, reg=0.001, learn.rate=0.001, alpha=0.4, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">RSTE</td>
+    <td>0.958</td>
+    <td>1.278</td>
+    <td>05:38:21</td>
+    <td>00:01</td>
+    <td>factors=10, reg=0.001, learn.rate=0.001, alpha=0.4, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">SocialMF</td>
+    <td>0.822</td>
+    <td>1.067</td>
+    <td>01:12:41</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.social=5, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (Tr)</td>
+    <td>0.826</td>
+    <td>1.075</td>
+    <td>01:25</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (Te)</td>
+    <td>0.828</td>
+    <td>1.078</td>
+    <td>01:24</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (T)</td>
+    <td>0.818</td>
+    <td>1.069</td>
+    <td>03:25</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (Tr)</td>
+    <td>0.827</td>
+    <td>1.104</td>
+    <td>01:51</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (Te)</td>
+    <td>0.829</td>
+    <td>1.107</td>
+    <td>01:50</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustMF (T)</td>
+    <td>0.819</td>
+    <td>1.095</td>
+    <td>04:15</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.05, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">SVD++</td>
+    <td>0.818</td>
+    <td>1.057</td>
+    <td>20:23</td>
+    <td>00:00</td>
+    <td>factors=5/10, reg=0.35, learn.rate=0.01, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustSVD</td>
+    <td><strong>0.804</strong></td>
+    <td><strong>1.047</strong></td>
+    <td>17:10</td>
+    <td>00:01</td>
+    <td>factors=5, reg=0.6, reg.social=0.5, learn.rate=0.001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">TrustSVD</td>
+    <td><strong>0.806</strong></td>
+    <td><strong>1.046</strong></td>
+    <td>23:44</td>
+    <td>00:01</td>
+    <td>factors=10, reg=0.6, reg.social=0.5, learn.rate=0.001, max.learn.rate=0.001, max.iter=130</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<!-- Datasets -->
+<div id="filmtrust">
+  <h2>FilmTrust (35K)  </h2>
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th rowspan="2" scope="col">Algorithm</th>
+      <th colspan="2" scope="col" class="text-center">MAE</th>
+      <th colspan="2" scope="col" class="text-center">RMSE</th>
+      <th colspan="2" scope="col class="text-center"">Train Time (s)</th>
+      <th colspan="2" scope="col" class="text-center">Test Time (s)</th>
+      </tr>
+    <tr>
+      <th><strong>MMLite</strong></th>
+      <th>LibRec</th>
+      <th><strong>MMLite</strong></th>
+      <th>LibRec</th>
+      <th><strong>MMLite</strong></th>
+      <th>LibRec</th>
+      <th><strong>MMLite</strong></th>
+      <th>LibRec</th>
+    </tr>
+    <tr>
+      <td>GlobalAvg</td>
+      <td>0.715</td>
+      <td>0.715</td>
+      <td>0.919</td>
+      <td>0.919</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td>UserAvg</td>
+      <td>0.635</td>
+      <td>0.636</td>
+      <td>0.822</td>
+      <td>0.823</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td scope="row">ItemAvg</td>
+      <td>0.726</td>
+      <td>0.725</td>
+      <td>0.929</td>
+      <td>0.927</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>03:06</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">UserKNN</td>
+      <td>0.608</td>
+      <td>0.627</td>
+      <td>0.795</td>
+      <td>0.824</td>
+      <td>00:03</td>
+      <td>00:03</td>
+      <td>00:35</td>
+      <td>00:01</td>
+      </tr>
+    <tr>
+      <td colspan="8">neighbors=50, similarity=pcc, shrinkage=30
+        (MMLite: reg_u=15, reg_i=10)</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">ItemKNN</td>
+      <td>0.603</td>
+      <td>0.619</td>
+      <td>0.792</td>
+      <td>0.818</td>
+      <td>00:01</td>
+      <td>01:06</td>
+      <td>00:13</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">neighbors=50, similarity=pcc, shrinkage=30
+        (MMLite: reg_u=15, reg_i=10)</td>
+      </tr>
+    <tr>
+      <td scope="row">SlopeOne</td>
+      <td>0.631</td>
+      <td>0.630</td>
+      <td>0.837</td>
+      <td>0.836</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">BiasedMF</td>
+      <td>0.616</td>
+      <td>0.615</td>
+      <td>0.810</td>
+      <td>0.808</td>
+      <td>00:02</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">factors=5, reg=0.1, learn.rate=0.01, max.iter=100</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">BiasedMF</td>
+      <td>0.616</td>
+      <td>0.611</td>
+      <td>0.807</td>
+      <td>0.802</td>
+      <td>00:03</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">factors=10, reg=0.1, learn.rate=0.01, max.iter=100</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">BiasedMF</td>
+      <td>0.652</td>
+      <td>0.637</td>
+      <td>0.878</td>
+      <td>0.862</td>
+      <td>00:02</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">factors=5, reg=0.01, learn.rate=0.01, max.iter=100</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">SocialMF</td>
+      <td>0.626</td>
+      <td>0.638</td>
+      <td>0.804</td>
+      <td>0.837</td>
+      <td>00:03</td>
+      <td>00:02</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">factors=5, reg=0.001, reg.social=1 learn.rate=0.001, max.iter=200</td>
+      </tr>
+    <tr>
+      <td rowspan="2" scope="row">SocialMF</td>
+      <td>0.630</td>
+      <td>0.642</td>
+      <td>0.810</td>
+      <td>0.844</td>
+      <td>00:05</td>
+      <td>00:02</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      </tr>
+    <tr>
+      <td colspan="8">factors=10, reg=0.001, reg.social=1 learn.rate=0.001, max.iter=200</td>
+      </tr>
+  </table>
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th scope="col">Algorithm</th>
+      <th scope="col">MAE</th>
+      <th scope="col">RMSE</th>
+      <th scope="col">Train</th>
+      <th scope="col">Test</th>
+      <th scope="col">Configuration</th>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.714</td>
+      <td>0.949</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.1, learn.rate=30, momentum=0.8, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.735</td>
+      <td>0.968</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.1, learn.rate=30, momentum=0.8, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">NMF</td>
+      <td>0.643</td>
+      <td>0.859</td>
+      <td>00:04</td>
+      <td>00:00</td>
+      <td>factors=100, max.iter=10</td>
+    </tr>
+    <tr>
+      <td scope="row">BPMF</td>
+      <td>0.659</td>
+      <td>0.871</td>
+      <td>00:11</td>
+      <td>00:00</td>
+      <td>factors=5, max.iter=50</td>
+    </tr>
+    <tr>
+      <td scope="row">RSTE</td>
+      <td>0.628</td>
+      <td>0.810</td>
+      <td>00:05</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, learn.rate=0.001, alpha=1.0, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">RSTE</td>
+      <td>0.640</td>
+      <td>0.835</td>
+      <td>00:05</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, learn.rate=0.001, alpha=1.0, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoRec</td>
+      <td>0.628</td>
+      <td>0.810</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.c=0.01, learn.rate=0.001, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoRec</td>
+      <td>0.638</td>
+      <td>0.831</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.c=0.01, learn.rate=0.001, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoReg</td>
+      <td>0.674</td>
+      <td>0.878</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, beta=0.1, learn.rate=0.001, max.iter=80</td>
+    </tr>
+    <tr>
+      <td scope="row">SoReg</td>
+      <td>0.668</td>
+      <td>0.875</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, beta=0.1, learn.rate=0.001,max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (Tr)</td>
+      <td>0.629</td>
+      <td>0.812</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (Te)</td>
+      <td>0.629</td>
+      <td>0.813</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (T)</td>
+      <td>0.631</td>
+      <td>0.810</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (Tr)</td>
+      <td>0.633</td>
+      <td>0.824</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (Te)</td>
+      <td>0.630</td>
+      <td>0.821</td>
+      <td>00:01</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (T)</td>
+      <td>0.631</td>
+      <td>0.819</td>
+      <td>00:05</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.social=1 learn.rate=0.05, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">SVD++</td>
+      <td>0.613</td>
+      <td>0.804</td>
+      <td>01:08</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.1, learn.rate=0.01, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SVD++</td>
+      <td>0.611</td>
+      <td>0.802</td>
+      <td>01:26</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.1, learn.rate=0.01, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustSVD</td>
+      <td><strong>0.609</strong></td>
+      <td><strong>0.789</strong></td>
+      <td>00:20</td>
+      <td>00:00</td>
+      <td>factors=5, reg=1.2, reg.social=0.9, learn.rate=0.01, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustSVD</td>
+      <td><strong>0.607</strong></td>
+      <td><strong>0.787</strong></td>
+      <td>00:25</td>
+      <td>00:00</td>
+      <td>factors=10, reg=1.2, reg.social=0.9, learn.rate=0.01, max.iter=100</td>
+    </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="ciao">
+  <h2>Ciao (280K)</h2>
+  <table class="table table-hover table-bordered">
+    <tr>
+      <th scope="col">Algorithm</th>
+      <th scope="col">MAE</th>
+      <th scope="col">RMSE</th>
+      <th scope="col">Train</th>
+      <th scope="col">Test</th>
+      <th scope="col">Configuration</th>
+    </tr>
+    <tr>
+      <td>GlobalAvg</td>
+      <td>0.820</td>
+      <td>1.059</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td>UserAvg</td>
+      <td>0.781</td>
+      <td>1.031</td>
+      <td>00:00</td>
+      <td>00:00</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td scope="row">ItemAvg</td>
+      <td>0.760</td>
+      <td>1.026</td>
+      <td>00:00</td>
+      <td>00:09</td>
+      <td>&nbsp;</td>
+    </tr>
+    <tr>
+      <td scope="row">UserKNN</td>
+      <td>0.796</td>
+      <td>1.047</td>
+      <td>01:47</td>
+      <td>01:46</td>
+      <td>neighbors=50, similarity=pcc, shrinkage=30</td>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.920</td>
+      <td>1.206</td>
+      <td>00:10</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.1, learn.rate=50, momentum=0.8, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.822</td>
+      <td>1.078</td>
+      <td>00:18</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.1, learn.rate=50, momentum=0.8, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.777</td>
+      <td>1.040</td>
+      <td>00:42</td>
+      <td>00:00</td>
+      <td>factors=20, reg=0.1, learn.rate=50, momentum=0.8, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">PMF</td>
+      <td>0.795</td>
+      <td>1.090</td>
+      <td>04:22</td>
+      <td>00:00</td>
+      <td>factors=50, reg=0.1, learn.rate=10, momentum=0.8, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">RSTE</td>
+      <td>0.767</td>
+      <td>1.020</td>
+      <td>03:57:34</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.05, learn.rate=0.001, alpha=1.0, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">RSTE</td>
+      <td>0.763</td>
+      <td>1.013</td>
+      <td>03:17:41</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.05, learn.rate=0.001, alpha=1.0, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoRec</td>
+      <td>0.765</td>
+      <td>1.013</td>
+      <td>00:39</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.c=0.01, learn.rate=0.05, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoRec</td>
+      <td>0.761</td>
+      <td>1.010</td>
+      <td>01:12</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.c=0.01, learn.rate=0.05, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SoReg</td>
+      <td>0.899</td>
+      <td>1.183</td>
+      <td>00:44</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, beta=0.1, learn.rate=0.0001,max.learn.rate=0.001, max.iter=300</td>
+    </tr>
+    <tr>
+      <td scope="row">SoReg</td>
+      <td>0.815</td>
+      <td>1.076</td>
+      <td>00:35</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, beta=0.1, learn.rate=0.0001,max.learn.rate=0.001, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">SoReg</td>
+      <td>0.777</td>
+      <td>1.046</td>
+      <td>00:48</td>
+      <td>00:00</td>
+      <td>factors=20, reg=0.001, beta=0.1, learn.rate=0.0001,max.learn.rate=0.001, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">SocialMF</td>
+      <td>0.749</td>
+      <td>0.981</td>
+      <td>11:33</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.001, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">SocialMF</td>
+      <td>0.749</td>
+      <td>0.976</td>
+      <td>16:38</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.001, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (T)</td>
+      <td>0.742</td>
+      <td>0.983</td>
+      <td>01:14</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.1, max.iter=200</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustMF (T)</td>
+      <td>0.753</td>
+      <td>1.014</td>
+      <td>02:27</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.1, max.iter=300</td>
+    </tr>
+    <tr>
+      <td scope="row">SVD++</td>
+      <td>0.752</td>
+      <td>1.013</td>
+      <td>10:23</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.1, learn.rate=0.01, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">SVD++</td>
+      <td>0.748</td>
+      <td>1.001</td>
+      <td>12:34</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.1, learn.rate=0.01, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustSVD</td>
+      <td><strong>0.722</strong></td>
+      <td><strong>0.954</strong></td>
+      <td>8:18</td>
+      <td>00:00</td>
+      <td>factors=5, reg=0.5, reg.social=1, learn.rate=0.001, max.learn.rate=0.005, max.iter=100</td>
+    </tr>
+    <tr>
+      <td scope="row">TrustSVD</td>
+      <td><strong>0.723</strong></td>
+      <td><strong>0.956</strong></td>
+      <td>12:10</td>
+      <td>00:00</td>
+      <td>factors=10, reg=0.5, reg.social=1, learn.rate=0.001, max.learn.rate=0.005, max.iter=100</td>
+    </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="flixster">
+<h2>Flixster (8.2M)</h2>
+<table class="table table-hover table-bordered">
+  <tr>
+      <th scope="col">Algorithm</th>
+      <th scope="col">MAE</th>
+      <th scope="col">RMSE</th>
+      <th scope="col">Train</th>
+      <th scope="col">Test</th>
+      <th scope="col">Configuration</th>
+    </tr>
+  <tr>
+    <td>GlobalAvg</td>
+    <td>0.871</td>
+    <td>1.092</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>UserAvg</td>
+    <td>0.685</td>
+    <td>0.918</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td scope="row">ItemAvg</td>
+    <td>0.844</td>
+    <td>1.070</td>
+    <td>00:00</td>
+    <td>03:06</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td scope="row">BiasedMF</td>
+    <td>0.632</td>
+    <td>0.852</td>
+    <td>05:04</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.03, learn.rate=0.051, max.iter=50;      <br></td>
+    </tr>
+  <tr>
+    <td scope="row">BiasedMF</td>
+    <td>0.630</td>
+    <td>0.853</td>
+    <td>05:07</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.015, learn.rate=0.051, max.iter=50;</td>
+    </tr>
+ <tr>
+    <td scope="row">SocialMF</td>
+    <td>0.689</td>
+    <td>0.904</td>
+    <td>01-17:25:16</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.social=1 learn.rate=0.001, max.iter=200</td>
+    </tr>
+ <tr>
+   <td scope="row">SocialMF</td>
+   <td>0.690</td>
+   <td>0.907</td>
+   <td>02-22:05:38</td>
+   <td>00:00</td>
+   <td>factors=10, reg=0.001, reg.social=1 learn.rate=0.001, max.iter=200</td>
+ </tr>
+ <tr>
+   <td scope="row">TrustMF (Tr)</td>
+   <td> 0.677</td>
+   <td>0.893</td>
+   <td>20:35</td>
+   <td>00:00</td>
+   <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.03, max.iter=200</td>
+ </tr>
+ <tr>
+   <td scope="row">TrustMF (Te)</td>
+   <td>0.677</td>
+   <td>0.892</td>
+   <td>20:14</td>
+   <td>00:00</td>
+   <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.03, max.iter=200</td>
+ </tr>
+ <tr>
+   <td scope="row">TrustMF (T)</td>
+   <td>0.670</td>
+   <td>0.881</td>
+   <td>57:50</td>
+   <td>00:00</td>
+   <td>factors=5, reg=0.001, reg.social=1, learn.rate=0.03, max.iter=200</td>
+ </tr>
+ <tr>
+   <td scope="row">TrustMF (T)</td>
+   <td>0.661</td>
+   <td>0.872</td>
+   <td>01:16:26</td>
+   <td>00:00</td>
+   <td>factors=10, reg=0.001, reg.social=1, learn.rate=0.03, max.iter=200</td>
+ </tr>
+ <tr>
+   <td scope="row">SVD++</td>
+   <td><strong>0.631</strong></td>
+   <td><strong>0.851</strong></td>
+   <td>01-12:02:29</td>
+   <td>02:07</td>
+   <td>factors=5, reg=0.03, learn.rate=0.05, max.iter=100</td>
+ </tr>
+ <tr>
+   <td scope="row">SVD++</td>
+   <td><strong>0.622</strong></td>
+   <td><strong>0.842</strong></td>
+   <td>01-19:21:30</td>
+   <td>02:11</td>
+   <td>factors=10, reg=0.03, learn.rate=0.05, max.iter=100</td>
+ </tr>
+ </table>
+</div>
+<hr class="small">
+
+<div>
+<h2>Flixster (410K)</h2>
+<table class="table table-hover table-bordered">
+    <tr>
+      <th scope="col">Algorithm</th>
+      <th scope="col">MAE</th>
+      <th scope="col">RMSE</th>
+      <th scope="col">Train</th>
+      <th scope="col">Test</th>
+      <th scope="col">Configuration</th>
+    </tr>
+  <tr>
+    <td>GlobalAvg</td>
+    <td>0.873</td>
+    <td>1.093</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>UserAvg</td>
+    <td>0.729</td>
+    <td>0.979</td>
+    <td>00:00</td>
+    <td>00:00</td>
+    <td>&nbsp;</td>
+    </tr>
+  <tr>
+    <td scope="row">ItemAvg</td>
+    <td>0.858</td>
+    <td>1.088</td>
+    <td>00:00</td>
+    <td>00:08</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td scope="row">PMF</td>
+    <td>0.814</td>
+    <td>1.076</td>
+    <td>00:14</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.1, learn.rate=30, momentum=0.8, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">PMF</td>
+    <td>0.769</td>
+    <td>1.009</td>
+    <td>00:20</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.1, learn.rate=30, momentum=0.8, max.iter=200</td>
+  </tr>
+  <tr>
+    <td scope="row">SoRec</td>
+    <td>0.750</td>
+    <td>0.974</td>
+    <td>01:25</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, reg.c=0.001, learn.rate=0.001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">SoRec</td>
+    <td>0.785</td>
+    <td>1.018</td>
+    <td>02:01</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, reg.c=0.001, learn.rate=0.001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td scope="row">SoReg</td>
+    <td>0.820</td>
+    <td>1.087</td>
+    <td>02:18</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, beta=1.0, learn.rate=0.001, max.learn.rate=0.02, max.iter=150</td>
+  </tr>
+  <tr>
+    <td scope="row">SoReg</td>
+    <td>0.785</td>
+    <td>1.034</td>
+    <td>02:18</td>
+    <td>00:00</td>
+    <td>factors=10, reg=0.001, beta=1.0, learn.rate=0.001, max.learn.rate=0.02, max.iter=150</td>
+  </tr>
+  <tr>
+    <td scope="row">RSTE</td>
+    <td>0.751</td>
+    <td>0.975</td>
+    <td>46:20</td>
+    <td>00:00</td>
+    <td>factors=5, reg=0.001, learn.rate=0.001, alpha=1.0, max.iter=100</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div>
+<h1 class="text-center">Item Recommendation</h1>
+<div class="alert alert-info"><strong>General Settings:</strong> item.ranking=on -topN -1 -ignore -1; -threshold 0</div>
+</div>
+
+<div id="item-ml-100k">
+<h2>MovieLens (100K)</h2>
+<table class="table table-hover table-bordered table-condensed">
+  <tr>
+    <th rowspan="2" scope="col">Algo</th>
+    <th colspan="2" scope="col" class="text-center">Prec@5</th>
+    <th colspan="2" scope="col" class="text-center">Prec@10</th>
+    <th colspan="2" scope="col" class="text-center">Recall@5</th>
+    <th colspan="2" scope="col" class="text-center">Recall@10</th>
+    <th colspan="2" scope="col" class="text-center">AUC</th>
+    <th colspan="2" scope="col" class="text-center">MAP</th>
+    <th colspan="2" scope="col" class="text-center">NDCG</th>
+    <th colspan="2" scope="col" class="text-center">MRR</th>
+    </tr>
+  <tr>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+    <th><strong>MMLite</strong></th>
+    <th>LibRec</th>
+  </tr>
+  <tr>
+    <td>MostPop</td>
+    <td>0.212</td>
+    <td>0.211</td>
+    <td>0.192</td>
+    <td>0.190</td>
+    <td>0.071</td>
+    <td>0.070</td>
+    <td>0.115</td>
+    <td>0.116</td>
+    <td>0.865</td>
+    <td>0.857</td>
+    <td>0.136</td>
+    <td>0.135</td>
+    <td>0.479</td>
+    <td>0.477</td>
+    <td>0.416</td>
+    <td>0.417</td>
+    </tr>  
+  <tr>
+    <td rowspan="2">ItemKNN</td>
+    <td>0.314</td>
+    <td>0.318</td>
+    <td>0.279</td>
+    <td>0.260</td>
+    <td>0.096</td>
+    <td>0.103</td>
+    <td>0.167</td>
+    <td>0.164</td>
+    <td>0.929</td>
+    <td>0.885</td>
+    <td>0.223</td>
+    <td>0.187</td>
+    <td>0.563</td>
+    <td>0.536</td>
+    <td>0.527</td>
+    <td>0.554</td>
+    </tr>
+  <tr>
+    <td colspan="16">neighbors=80, similarity=cos, shrinkage=50, thresold=-1</td>
+    </tr>
+  <tr>
+    <td rowspan="2">UserKNN</td>
+    <td>0.397</td>
+    <td>0.338</td>
+    <td>0.334</td>
+    <td>0.280</td>
+    <td>0.138</td>
+    <td>0.116</td>
+    <td>0.218</td>
+    <td>0.182</td>
+    <td>0.929</td>
+    <td>0.884</td>
+    <td>0.268</td>
+    <td>0.208</td>
+    <td>0.610</td>
+    <td>0.554</td>
+    <td>0.655</td>
+    <td>0.569</td>
+    </tr>
+  <tr>
+    <td colspan="16">neighbors=80, similarity=cos, shrinkage=50, thresold=-1</td>
+    </tr>
+  <tr>
+    <td rowspan="2">BPR</td>
+    <td>0.358</td>
+    <td>0.378</td>
+    <td>0.309</td>
+    <td>0.321</td>
+    <td>0.247</td>
+    <td>0.129</td>
+    <td>0.201</td>
+    <td>0.209</td>
+    <td>0.932</td>
+    <td>0.933</td>
+    <td>0.247</td>
+    <td>0.260</td>
+    <td>0.589</td>
+    <td>0.601</td>
+    <td>0.589</td>
+    <td>0.622</td>
+    </tr>
+  <tr>
+    <td colspan="16">factors=10, reg=0.01, learn.rate=0.05, max.iter=30</td>
+    </tr>
+  <tr>
+    <td rowspan="2">WRMF</td>
+    <td>0.416</td>
+    <td>0.424</td>
+    <td>0.353</td>
+    <td>0.358</td>
+    <td>0.142</td>
+    <td>0.149</td>
+    <td>0.227</td>
+    <td>0.236</td>
+    <td>0.936</td>
+    <td>0.928</td>
+    <td>0.287</td>
+    <td>0.294</td>
+    <td>0.624</td>
+    <td>0.631</td>
+    <td>0.672</td>
+    <td>0.675</td>
+    </tr>
+  <tr>
+    <td colspan="16">alpha=1.0, factors=20, reg=0.015, max.iter=10</td>
+    </tr>
+  </table>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">Prec@5</th>
+    <th scope="col">Prec@10</th>
+    <th scope="col">Rec@5</th>
+    <th scope="col">Rec@10</th>
+    <th scope="col">AUC</th>
+    <th scope="col">MAP</th>
+    <th scope="col">NDCG</th>
+    <th scope="col">MRR</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td>AR</td>
+    <td>0.332</td>
+    <td>0.268</td>
+    <td>0.110</td>
+    <td>0.166</td>
+    <td>0.892</td>
+    <td>0.202</td>
+    <td>0.551</td>
+    <td>0.590</td>
+    <td>&nbsp;</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="item-epinions">
+  <h2>Epinions (665K)</h2>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">Prec@5</th>
+    <th scope="col">Prec@10</th>
+    <th scope="col">Rec@5</th>
+    <th scope="col">Rec@10</th>
+    <th scope="col">AUC</th>
+    <th scope="col">MAP</th>
+    <th scope="col">NDCG</th>
+    <th scope="col">MRR</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td>FISMrmse</td>
+    <td>0.00636</td>
+    <td>0.00522</td>
+    <td>0.0121</td>
+    <td>0.0195</td>
+    <td>0.891</td>
+    <td>0.011</td>
+    <td>0.148</td>
+    <td>0.0256</td>
+    <td>factors=10, max.iter=50, rho=3, alpha=0.5, lambda=0, beta=1e-4, gamma=0.005</td>
+  </tr>
+  <tr>
+    <td>RankALS</td>
+    <td>0.00850</td>
+    <td>0.00682</td>
+    <td>0.0103</td>
+    <td>0.0164</td>
+    <td>0.572</td>
+    <td>0.00903</td>
+    <td>0.125</td>
+    <td>0.0286</td>
+    <td>factors=10, max.iter=10, sw=on, binary.threshold=-1</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="item-flixster">
+  <h2>Flixster (410K)</h2>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th scope="col">Algorithm</th>
+    <th scope="col">Prec@5</th>
+    <th scope="col">Prec@10</th>
+    <th scope="col">Rec@5</th>
+    <th scope="col">Rec@10</th>
+    <th scope="col">AUC</th>
+    <th scope="col">MAP</th>
+    <th scope="col">NDCG</th>
+    <th scope="col">MRR</th>
+    <th scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td>FISMrmse</td>
+    <td>0.00995</td>
+    <td>0.00867</td>
+    <td>0.0328</td>
+    <td>0.0532</td>
+    <td>0.955</td>
+    <td>0.034</td>
+    <td>0.193</td>
+    <td>0.0460</td>
+    <td>factors=10, max.iter=50, rho=3, alpha=0.5, lambda=0, reg=0.001</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="item-filmtrust">
+  <h2>FilmTrust</h2>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th width="10%" scope="col">Algorithm</th>
+    <th width="5%" scope="col">Prec@5</th>
+    <th width="6%" scope="col">Prec@10</th>
+    <th width="6%" scope="col">Rec@5</th>
+    <th width="7%" scope="col">Rec@10</th>
+    <th width="5%" scope="col">AUC</th>
+    <th width="5%" scope="col">MAP</th>
+    <th width="5%" scope="col">NDCG</th>
+    <th width="5%" scope="col">MRR</th>
+    <th width="46%" scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td>MostPop</td>
+    <td>0.417</td>
+    <td>0.350</td>
+    <td>0.402</td>
+    <td>0.638</td>
+    <td>0.956</td>
+    <td>0.494</td>
+    <td>0.655</td>
+    <td>0.616</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>AR</td>
+    <td>0.424</td>
+    <td>0.350</td>
+    <td>0.414</td>
+    <td>0.631</td>
+    <td>0.955</td>
+    <td>0.503</td>
+    <td>0.662</td>
+    <td>0.631</td>
+    <td>&nbsp;</td>
+  </tr>
+  <tr>
+    <td>LDA</td>
+    <td>0.421</td>
+    <td>0.351</td>
+    <td>0.409</td>
+    <td>0.635</td>
+    <td>0.930</td>
+    <td>0.435</td>
+    <td>0.542</td>
+    <td>0.619</td>
+    <td>factors=10, alpha=2, beta=0.5, max.iter=3000, burn.in=1000, sample.lag=100</td>
+  </tr>
+  <tr>
+    <td>BPR</td>
+    <td>0.4126</td>
+    <td>0.3477</td>
+    <td>0.404</td>
+    <td>0.636</td>
+    <td>0.9618</td>
+    <td>0.4831</td>
+    <td>0.6461</td>
+    <td>0.5970</td>
+    <td> factors=10, reg=0.1, learn.rate=0.01, max.iter=30</td>
+  </tr>
+  <tr>
+    <td>FISMauc</td>
+    <td>0.4172</td>
+    <td>0.3501</td>
+    <td>0.4005</td>
+    <td>0.6342</td>
+    <td>0.9579</td>
+    <td>0.4924</td>
+    <td>0.6543</td>
+    <td>0.6177</td>
+    <td>factors=10, rho=30, alpha=0.5, reg=0.01, learn.rate=0.0001, max.iter=100</td>
+  </tr>
+  <tr>
+    <td>WRMF</td>
+    <td>0.421</td>
+    <td>0.345</td>
+    <td>0.414</td>
+    <td>0.615</td>
+    <td>0.910</td>
+    <td>0.501</td>
+    <td>0.656</td>
+    <td>0.629</td>
+    <td>factors=10, max.iter=30, reg=0.001, reg.j=0.001, learn.rate=0.001, threshold=0</td>
+  </tr>
+  <tr>
+    <td>WRMF</td>
+    <td>0.429</td>
+    <td>0.350</td>
+    <td>0.426</td>
+    <td>0.630</td>
+    <td>0.925</td>
+    <td>0.518</td>
+    <td>0.671</td>
+    <td>0.647</td>
+    <td>factors=10, max.iter=30, reg=0.001, reg.j=0.001, learn.rate=0.001, threshold=-1</td>
+  </tr>
+  <tr>
+    <td>SLIM</td>
+    <td>0.434</td>
+    <td>0.358</td>
+    <td>0.436</td>
+    <td>0.647</td>
+    <td>0.909</td>
+    <td>0.530</td>
+    <td>0.681</td>
+    <td>0.671</td>
+    <td>num.neighbors=100, sim=cos-binary, max.iter=150, reg.l1=1, reg.l2=5, threshold=-1</td>
+  </tr>
+  <tr>
+    <td>RankALS</td>
+    <td>0.359</td>
+    <td>0.272</td>
+    <td>0.321</td>
+    <td>0.464</td>
+    <td>0.658</td>
+    <td>0.356</td>
+    <td>0.538</td>
+    <td>0.555</td>
+    <td>factors=10, max.iter=8, sw=on</td>
+  </tr>
+  </table>
+</div>
+<hr class="small">
+
+<div id="item-ciao">
+  <h2>Ciao (280K)</h2>
+  <table class="table table-hover table-bordered">
+  <tr>
+    <th width="10%" scope="col">Algorithm</th>
+    <th width="5%" scope="col">Prec@5</th>
+    <th width="6%" scope="col">Prec@10</th>
+    <th width="6%" scope="col">Rec@5</th>
+    <th width="7%" scope="col">Rec@10</th>
+    <th width="5%" scope="col">AUC</th>
+    <th width="5%" scope="col">MAP</th>
+    <th width="5%" scope="col">NDCG</th>
+    <th width="5%" scope="col">MRR</th>
+    <th width="46%" scope="col">Configuration</th>
+  </tr>
+  <tr>
+    <td>MostPop</td>
+    <td>0.0267</td>
+    <td>0.0214</td>
+    <td>0.0221</td>
+    <td>0.0353</td>
+    <td>0.816</td>
+    <td>0.0209</td>
+    <td>0.176</td>
+    <td>0.074</td>
+    <td>&nbsp;</td>
+  </tr>
+  </table>
+</div>
+
+</div>
+</body>
+</html>
